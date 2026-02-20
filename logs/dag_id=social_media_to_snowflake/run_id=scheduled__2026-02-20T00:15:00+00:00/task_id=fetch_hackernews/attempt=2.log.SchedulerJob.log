@@ -1,0 +1,1 @@
+[2026-02-20T01:14:55.835+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: social_media_to_snowflake.fetch_hackernews scheduled__2026-02-20T00:15:00+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

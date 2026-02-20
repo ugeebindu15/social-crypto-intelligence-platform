@@ -1,0 +1,1485 @@
+[2026-02-19T21:56:57.162+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: social_media_to_snowflake.load_to_snowflake manual__2026-02-19T21:56:37.417188+00:00 [queued]>
+[2026-02-19T21:56:57.176+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: social_media_to_snowflake.load_to_snowflake manual__2026-02-19T21:56:37.417188+00:00 [queued]>
+[2026-02-19T21:56:57.177+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-02-19T21:56:57.197+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): load_to_snowflake> on 2026-02-19 21:56:37.417188+00:00
+[2026-02-19T21:56:57.203+0000] {standard_task_runner.py:60} INFO - Started process 2656 to run task
+[2026-02-19T21:56:57.209+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'social_media_to_snowflake', 'load_to_snowflake', 'manual__2026-02-19T21:56:37.417188+00:00', '--job-id', '132', '--raw', '--subdir', 'DAGS_FOLDER/load_to_snowflake.py', '--cfg-path', '/tmp/tmpqczutq_q']
+[2026-02-19T21:56:57.213+0000] {standard_task_runner.py:88} INFO - Job 132: Subtask load_to_snowflake
+[2026-02-19T21:56:57.305+0000] {task_command.py:423} INFO - Running <TaskInstance: social_media_to_snowflake.load_to_snowflake manual__2026-02-19T21:56:37.417188+00:00 [running]> on host d425cee099b0
+[2026-02-19T21:56:57.450+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='social_media_to_snowflake' AIRFLOW_CTX_TASK_ID='load_to_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2026-02-19T21:56:37.417188+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-19T21:56:37.417188+00:00'
+[2026-02-19T21:56:57.497+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:315 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2026-02-19T21:56:57.515+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:56:57.516+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:56:57.518+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:56:58.214+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:56:58.610+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:56:58.611+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:56:58.613+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47074735_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47074735, "title": "Gemini 3.1 Pro", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/", "score": 289, "by": "MallocVoidstar", "time": 1771514397}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:56:58.613+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:56:59.569+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:56:59.570+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:56:59.571+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:56:59.573+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28684-0004-9549-0000-000b9836451d
+[2026-02-19T21:56:59.574+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:56:59.900+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:56:59.901+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:56:59.902+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:56:59.953+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:00.039+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:00.041+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:00.042+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:00.621+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:00.781+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:00.783+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:00.784+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47078324_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47078324, "title": "AI is not a coworker, it''s an exoskeleton", "url": "https://www.kasava.dev/blog/ai-as-exoskeleton", "score": 43, "by": "benbeingbin", "time": 1771530911}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:00.785+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:01.629+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:01.630+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:01.631+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:01.631+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-979b-0000-000b9836c26d
+[2026-02-19T21:57:01.632+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:02.104+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:02.105+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:02.106+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:02.152+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:02.230+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:02.232+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:02.233+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:02.759+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:02.909+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:02.911+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:02.912+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47078167_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47078167, "title": "Micropayments as a reality check for news sites", "url": "https://blog.zgp.org/micropayments-as-a-reality-check-for-news-sites/", "score": 50, "by": "speckx", "time": 1771530151}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:02.914+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:03.677+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:03.679+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:03.680+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:03.681+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-954b-0000-000b983624d9
+[2026-02-19T21:57:03.682+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:04.086+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:04.088+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:04.089+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:04.157+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:04.316+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:04.317+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:04.318+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:04.824+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:05.024+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:05.027+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:05.029+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47075124_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47075124, "title": "Show HN: Micasa \u2013 track your house from the terminal", "url": "https://micasa.dev", "score": 318, "by": "cpcloud", "time": 1771516454}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:05.030+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:05.827+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:05.829+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:05.829+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:05.830+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-97fe-0000-000b9836d2a1
+[2026-02-19T21:57:05.831+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:06.366+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:06.371+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:06.402+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:06.546+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:06.640+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:06.642+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:06.643+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:07.159+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:07.340+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:07.341+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:07.344+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47079718_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47079718, "title": "Show HN: Ghostty-based terminal with vertical tabs and notifications", "url": "https://github.com/manaflow-ai/cmux", "score": 14, "by": "lawrencechen", "time": 1771536604}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:07.345+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:07.774+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:07.776+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:07.776+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:07.777+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-97fe-0000-000b9836d2a5
+[2026-02-19T21:57:07.778+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:08.183+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:08.185+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:08.186+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:08.247+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:08.350+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:08.351+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:08.351+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:08.989+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:09.085+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:09.086+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:09.087+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47076659_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47076659, "title": "A terminal weather app with ASCII animations driven by real-time weather data", "url": "https://github.com/Veirt/weathr", "score": 111, "by": "forinti", "time": 1771523245}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:09.088+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:09.617+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:09.618+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:09.618+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:09.619+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9549-0000-000b98364529
+[2026-02-19T21:57:09.620+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:10.130+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:10.131+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:10.132+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:10.184+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:10.277+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:10.279+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:10.281+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:10.576+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:10.726+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:10.727+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:10.727+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47077245_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47077245, "title": "Archaeologists find possible first direct evidence of Hannibal''s war elephants", "url": "https://www.smithsonianmag.com/smart-news/archaeologists-unearthed-a-2200-year-old-bone-they-say-it-could-be-the-first-direct-evidence-of-hannibals-legendary-war-elephants-180988185/", "score": 57, "by": "bryanrasmussen", "time": 1771525910}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:10.728+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:11.637+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:11.640+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:11.643+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:11.644+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9546-0000-000b9836b881
+[2026-02-19T21:57:11.648+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:11.974+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:11.976+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:11.976+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:12.025+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:12.107+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:12.109+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:12.110+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:12.591+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:12.712+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:12.714+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:12.715+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47074389_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47074389, "title": "America vs. Singapore: You can''t save your way out of economic shocks", "url": "https://www.governance.fyi/p/america-vs-singapore-you-cant-save", "score": 167, "by": "guardianbob", "time": 1771512738}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:12.716+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:13.404+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:13.407+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:13.408+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:13.409+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9545-0000-000b98366695
+[2026-02-19T21:57:13.409+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:13.816+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:13.817+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:13.818+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:14.014+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:14.081+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:14.082+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:14.083+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:15.152+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:15.274+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:15.275+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:15.275+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47079222_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47079222, "title": "We''re no longer attracting top talent: the brain drain killing American science", "url": "https://www.theguardian.com/us-news/2026/feb/19/trump-science-funding-cuts", "score": 66, "by": "mitchbob", "time": 1771534583}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:15.276+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:15.864+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:15.865+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:15.866+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:15.867+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9546-0000-000b9836b889
+[2026-02-19T21:57:15.868+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:16.376+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:16.377+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:16.378+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:16.423+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:16.514+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:16.516+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:16.517+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:16.768+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:16.925+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:16.926+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:16.927+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47072968_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47072968, "title": "Paged Out Issue #8 [pdf]", "url": "https://pagedout.institute/download/PagedOut_008.pdf", "score": 268, "by": "SteveHawk27", "time": 1771503224}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:16.928+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:17.397+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:17.398+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:17.398+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:17.399+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-97fe-0000-000b9836d2ad
+[2026-02-19T21:57:17.401+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:17.709+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:17.710+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:17.711+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:17.764+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:17.841+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:17.842+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:17.843+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:18.329+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:18.440+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:18.441+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:18.442+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47078840_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47078840, "title": "Overall, the colorectal cancer story is encouraging", "url": "https://www.hankgreen.com/crc", "score": 60, "by": "ZeroGravitas", "time": 1771533129}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:18.443+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:18.936+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:18.937+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:18.938+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:18.939+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-954b-0000-000b983624e5
+[2026-02-19T21:57:18.940+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:19.470+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:19.471+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:19.472+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:19.517+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:19.585+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:19.586+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:19.587+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:20.170+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:20.278+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:20.279+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:20.280+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47073112_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47073112, "title": "Pebble Production: February Update", "url": "https://repebble.com/blog/february-pebble-production-and-software-updates", "score": 239, "by": "smig0", "time": 1771504560}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:20.281+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:21.211+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:21.214+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:21.215+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:21.216+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9547-0000-000b9836355d
+[2026-02-19T21:57:21.217+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:21.702+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:21.703+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:21.705+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:21.755+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:21.841+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:21.842+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:21.843+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:22.117+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:22.264+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:22.265+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:22.266+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47074869_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47074869, "title": "Dinosaur Food: 100M year old foods we still eat today (2022)", "url": "https://borischerny.com/food/2022/01/17/Dinosaur-food.html", "score": 83, "by": "simonebrunozzi", "time": 1771515042}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:22.268+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:22.725+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:22.727+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:22.727+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:22.728+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9546-0000-000b9836b895
+[2026-02-19T21:57:22.729+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:23.343+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:23.344+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:23.346+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:23.387+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:23.469+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:23.470+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:23.471+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:24.058+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:24.163+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:24.165+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:24.166+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47079590_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47079590, "title": "A psychedelic medicine performs well against depression", "url": "https://www.economist.com/science-and-technology/2026/02/19/a-psychedelic-medicine-performs-well-against-depression", "score": 3, "by": "vinni2", "time": 1771536087}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:24.167+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:25.587+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:25.587+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:25.589+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:25.590+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9547-0000-000b98363565
+[2026-02-19T21:57:25.591+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:26.070+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:26.072+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:26.074+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:26.118+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:26.195+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:26.198+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:26.199+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:26.475+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:26.583+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:26.584+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:26.585+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47041294_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47041294, "title": "My 1981 adventure game is now a multimedia extravaganza", "url": "https://technologizer.com/home/2026/02/16/arctic-adventure-2026/", "score": 31, "by": "vontzy", "time": 1771281350}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:26.586+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:27.007+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:27.008+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:27.009+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:27.010+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9545-0000-000b983666a1
+[2026-02-19T21:57:27.010+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:27.637+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:27.638+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:27.639+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:27.691+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:27.765+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:27.766+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:27.766+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:28.208+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:28.312+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:28.313+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:28.314+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47038032_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47038032, "title": "Don''t Trust the Salt: AI Summarization, Multilingual Safety, and LLM Guardrails", "url": "https://royapakzad.substack.com/p/multilingual-llm-evaluation-to-guardrails", "score": 167, "by": "benbreen", "time": 1771264666}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:28.315+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:28.768+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:28.769+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:28.770+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:28.771+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9547-0000-000b9836356d
+[2026-02-19T21:57:28.772+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:29.177+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:29.179+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:29.180+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:29.249+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:29.323+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:29.324+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:29.325+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:29.588+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:29.716+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:29.718+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:29.719+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47073947_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47073947, "title": "Measuring AI agent autonomy in practice", "url": "https://www.anthropic.com/research/measuring-agent-autonomy", "score": 61, "by": "jbredeche", "time": 1771510454}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:29.720+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:30.175+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:30.177+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:30.177+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:30.178+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9547-0000-000b98363571
+[2026-02-19T21:57:30.179+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:30.529+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:30.530+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:30.531+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:30.601+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:30.702+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:30.703+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:30.704+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:30.944+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:31.045+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:31.046+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:31.047+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47072444_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47072444, "title": "Show HN: A physically-based GPU ray tracer written in Julia", "url": "https://makie.org/website/blogposts/raytracing/", "score": 151, "by": "simondanisch", "time": 1771498513}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:31.047+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:31.531+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:31.533+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:31.534+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:31.535+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-954b-0000-000b983624e9
+[2026-02-19T21:57:31.536+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:31.941+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:31.942+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:31.943+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:32.017+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:32.079+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:32.081+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:32.082+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:32.335+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:32.443+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:32.444+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:32.446+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47076966_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47076966, "title": "AI makes you boring", "url": "https://www.marginalia.nu/log/a_132_ai_bores/", "score": 419, "by": "speckx", "time": 1771524736}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:32.447+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:32.964+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:32.965+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:32.966+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:32.967+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9549-0000-000b98364539
+[2026-02-19T21:57:32.968+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:33.271+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:33.273+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:33.274+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:33.322+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:33.399+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:33.400+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:33.401+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:33.881+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:33.967+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:33.969+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:33.970+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47067270_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47067270, "title": "US plans online portal to bypass content bans in Europe and elsewhere", "url": "https://www.reuters.com/world/us-plans-online-portal-bypass-content-bans-europe-elsewhere-2026-02-18/", "score": 73, "by": "c420", "time": 1771453513}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:33.971+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:34.499+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:34.500+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:34.501+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:34.502+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-97fe-0000-000b9836d2bd
+[2026-02-19T21:57:34.503+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:34.852+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:34.852+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:34.853+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:34.941+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:35.011+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:35.013+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:35.014+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:35.532+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:35.617+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:35.618+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:35.619+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47077844_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47077844, "title": "California''s new bill requires DOJ-approved 3D printers that report themselves", "url": "https://blog.adafruit.com/2026/02/19/californias-new-bill-requires-doj-approved-3d-printers-that-report-on-themselves/", "score": 175, "by": "fortran77", "time": 1771528572}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:35.620+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:36.038+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:36.040+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:36.041+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:36.043+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9549-0000-000b9836453d
+[2026-02-19T21:57:36.044+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:36.857+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:36.858+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:36.859+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:36.935+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:37.013+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:37.014+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:37.015+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:37.275+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:37.380+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:37.381+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:37.382+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47072863_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47072863, "title": "Show HN: Mini-Diarium - An encrypted, local, cross-platform journaling app", "url": "https://github.com/fjrevoredo/mini-diarium", "score": 101, "by": "holyknight", "time": 1771502061}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:37.384+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:37.884+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:37.885+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:37.886+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:37.887+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9545-0000-000b983666ad
+[2026-02-19T21:57:37.888+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:38.186+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:38.188+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:38.189+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:38.232+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:38.298+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:38.300+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:38.301+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:38.631+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:38.748+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:38.749+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:38.750+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47073044_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47073044, "title": "Coding Tricks Used in the C64 Game Seawolves", "url": "https://kodiak64.co.uk/blog/seawolves-technical-tricks", "score": 106, "by": "atan2", "time": 1771503873}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:38.751+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:39.210+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:39.211+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:39.212+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:39.213+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9546-0000-000b9836b89d
+[2026-02-19T21:57:39.214+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:39.620+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:39.621+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:39.622+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:39.671+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:39.769+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:39.772+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:39.773+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:40.037+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:40.132+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:40.133+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:40.134+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47075245_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47075245, "title": "Mark Zuckerberg Grilled on Usage Goals and Underage Users at California Trial", "url": "https://www.wsj.com/us-news/law/meta-mark-zuckerberg-social-media-trial-0e9a7fa0", "score": 124, "by": "1vuio0pswjnm7", "time": 1771517234}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:40.135+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:40.956+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:40.957+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:40.958+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:40.959+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9541-0000-000b98367479
+[2026-02-19T21:57:40.960+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:41.204+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:41.206+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:41.207+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:41.255+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:41.331+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:41.333+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:41.334+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:42.289+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:42.394+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:42.396+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:42.397+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47077383_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47077383, "title": "Farewell, Rust for web", "url": "https://yieldcode.blog/post/farewell-rust/", "score": 81, "by": "skwee357", "time": 1771526571}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:42.398+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:42.895+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:42.897+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:42.898+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:42.898+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9549-0000-000b98364541
+[2026-02-19T21:57:42.899+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:43.213+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:43.214+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:43.214+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:43.283+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:43.356+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:43.359+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:43.361+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:43.930+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:44.040+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:44.041+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:44.042+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47072539_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47072539, "title": "Bridging Elixir and Python with Oban", "url": "https://oban.pro/articles/bridging-with-oban", "score": 108, "by": "sorentwo", "time": 1771499235}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:44.043+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:44.535+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:44.536+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:44.537+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:44.538+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-979b-0000-000b9836c299
+[2026-02-19T21:57:44.539+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:44.943+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:44.944+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:44.945+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:44.990+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:45.064+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:45.065+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:45.066+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:45.356+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:45.471+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:45.475+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:45.476+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47037781_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47037781, "title": "Zero downtime migrations at petabyte scale (2024)", "url": "https://planetscale.com/blog/zero-downtime-migrations-at-petabyte-scale", "score": 63, "by": "Ozzie_osman", "time": 1771263300}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:45.476+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:45.970+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:45.973+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:45.974+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:45.975+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9545-0000-000b983666bd
+[2026-02-19T21:57:45.976+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:47.503+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:47.504+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:47.505+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:47.553+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:47.624+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:47.625+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:47.626+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:48.127+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:48.283+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:48.284+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:48.285+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47027171_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47027171, "title": "Voith Schneider Propeller", "url": "https://en.wikipedia.org/wiki/Voith_Schneider_Propeller", "score": 110, "by": "Luc", "time": 1771186953}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:48.285+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:48.731+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:48.734+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:48.735+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:48.736+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-979b-0000-000b9836c29d
+[2026-02-19T21:57:48.738+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:49.100+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:49.101+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:49.101+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:49.145+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:49.214+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:49.215+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:49.215+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:49.485+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:49.609+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:49.610+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:49.611+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47049121_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47049121, "title": "Level of Detail", "url": "https://phinze.com/writing/level-of-detail", "score": 9, "by": "zdw", "time": 1771344890}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:49.612+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:50.066+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:50.067+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:50.068+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:50.068+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-979b-0000-000b9836c2a1
+[2026-02-19T21:57:50.069+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:50.469+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:50.471+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:50.472+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:50.516+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:50.585+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:50.587+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:50.588+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:51.095+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:51.210+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:51.211+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:51.211+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'HN_47074083_202602192156',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47074083, "title": "Can random experimental choice lead to better theories?", "url": "https://journals.sagepub.com/doi/10.1177/26339137261421577", "score": 30, "by": "paraschopra", "time": 1771511180}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:51.212+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:51.805+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:51.807+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:51.808+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:51.809+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9549-0000-000b98364545
+[2026-02-19T21:57:51.809+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:52.215+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:52.217+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:52.217+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:52.262+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:52.317+0000] {logging_mixin.py:188} INFO - ✅ Loaded 30 HackerNews stories
+[2026-02-19T21:57:52.333+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:52.333+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:52.335+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:52.577+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:52.674+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:52.675+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:52.676+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_5378986808644761143_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Minecraft 26.1 Snapshot 9 - Minecraft", "description": "Minecraft 26.1 Snapshot 9", "url": "https://www.minecraft.net/en-us/article/minecraft-26-1-snapshot-9", "source": "Minecraft.net", "published_at": "2026-02-18T18:21:48Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:52.677+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:53.110+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:53.111+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:53.112+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:53.113+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-97fe-0000-000b9836d2c1
+[2026-02-19T21:57:53.114+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:53.556+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:53.558+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:53.558+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:53.632+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:53.708+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:53.709+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:53.710+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:53.964+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:54.097+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:54.098+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:54.099+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_8242657368669123518_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Call Of Duty: Black Ops 7 Ad Banned Over Sexual Assault Joke - Kotaku", "description": "A commercial featuring the Replacers assaulting a male passenger at an airport security checkpoint can no longer air in the UK", "url": "https://kotaku.com/call-of-duty-black-ops-7-ad-banned-over-sexual-assault-joke-2000670671", "source": "Kotaku", "published_at": "2026-02-18T16:35:57Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:54.100+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:54.572+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:54.573+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:54.574+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:54.575+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9549-0000-000b98364549
+[2026-02-19T21:57:54.576+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:54.980+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:54.982+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:54.983+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:55.057+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:55.138+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:55.139+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:55.141+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:55.706+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:55.794+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:55.795+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:55.796+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_4789281022455614270_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Gemini app rolling out music generation for all with Lyria 3 - 9to5Google", "description": "Following text, audio overviews, images, and video, the Gemini app\u2019s latest output is music with Lyria 3...", "url": "http://9to5google.com/2026/02/18/gemini-app-music-lyria-3/", "source": "9to5google.com", "published_at": "2026-02-18T16:00:00Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:55.797+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:56.312+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:56.313+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:56.314+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:56.315+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-9546-0000-000b9836b8a9
+[2026-02-19T21:57:56.316+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:56.718+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:56.719+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:56.720+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:56.763+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:56.834+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:56.836+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:56.837+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:57.086+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:57.248+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:57.249+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:57.250+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_8243742839545771317_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Dragon Ball: Sparking Zero Nintendo Switch 2 and Switch update out tomorrow, patch notes - Nintendo Everything", "description": "Dragon Ball: Sparking Zero is update is about to release - check out the full patch notes here.", "url": "https://nintendoeverything.com/dragon-ball-sparking-zero-nintendo-switch-2-and-switch-update-out-tomorrow-patch-notes/", "source": "Nintendoeverything.com", "published_at": "2026-02-18T15:55:40Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:57.251+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:57.744+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:57.745+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:57.745+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:57.746+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-954b-0000-000b983624fd
+[2026-02-19T21:57:57.747+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:58.093+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:58.094+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:58.095+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:58.160+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:58.241+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:58.242+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:58.242+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:57:58.528+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:57:58.631+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:58.633+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:58.634+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_2696453039183594140_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Google\u2019s Pixel 10a arrives on March 5 for $499 with specs and design of yesteryear - Ars Technica", "description": "Google''s new budget phone is here, but don''t expect a big upgrade.", "url": "https://arstechnica.com/gadgets/2026/02/googles-pixel-10a-arrives-on-march-5-for-499-with-specs-and-design-of-yesteryear/", "source": "Ars Technica", "published_at": "2026-02-18T15:00:34Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:57:58.635+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:57:59.076+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:59.077+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:57:59.078+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:57:59.078+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28685-0004-979b-0000-000b9836c2ad
+[2026-02-19T21:57:59.079+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:57:59.591+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:57:59.593+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:57:59.593+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:57:59.649+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:57:59.731+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:57:59.732+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:57:59.733+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:00.635+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:00.743+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:00.744+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:00.745+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_7491862816739928754_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Low-Cost MacBook Expected on March 4 in These Colors - MacRumors", "description": "Apple will announce its rumored low-cost MacBook at its event on March 4, with the device coming in a selection of bold color options, according to a...", "url": "https://www.macrumors.com/2026/02/18/low-cost-macbook-expected-on-march-4/", "source": "MacRumors", "published_at": "2026-02-18T13:42:43Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:00.746+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:01.328+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:01.329+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:01.330+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:01.330+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-954b-0000-000b98362501
+[2026-02-19T21:58:01.331+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:01.737+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:01.739+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:01.740+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:01.789+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:01.881+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:01.882+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:01.883+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:02.457+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:02.558+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:02.559+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:02.560+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_1580414427556184144_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Samsung teases new AI image editor for upcoming Galaxy S26 phones - Mashable", "description": "For all your photo editing needs.", "url": "https://mashable.com/article/samsung-galaxy-s26-ai-photo-editing-suite", "source": "Mashable", "published_at": "2026-02-18T12:16:29Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:02.560+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:03.068+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:03.070+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:03.071+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:03.071+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9541-0000-000b98367499
+[2026-02-19T21:58:03.073+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:03.478+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:03.480+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:03.481+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:03.536+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:03.622+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:03.623+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:03.624+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:03.916+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:04.014+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:04.015+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:04.016+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_7374630391467758034_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Marathon isn''t just favouring PlayStation players with exclusive cosmetics; Xbox and Steam players promised bonus loot, too - Eurogamer", "description": "Marathon weapon charms will be coming to other platforms than the PlayStation, a new post indicates.", "url": "https://www.eurogamer.net/marathon-isnt-just-favouring-playstation-players-with-exclusive-cosmetics-xbox-and-steam-players-promised-bonus-loot-too", "source": "Eurogamer.net", "published_at": "2026-02-18T11:58:36Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:04.017+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:04.561+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:04.562+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:04.562+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:04.563+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9549-0000-000b98364555
+[2026-02-19T21:58:04.564+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:04.896+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:04.897+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:04.898+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:04.969+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:05.054+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:05.056+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:05.057+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:05.633+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:05.756+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:05.757+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:05.758+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_7042004840496690006_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Strip out Windows 11\u2019s bloatware, ads, and other nastiness\u2014for free - PCWorld", "description": "A new Windows PC can be full of bloat. But this handy app can help you streamline it in minutes!", "url": "https://www.pcworld.com/article/3056694/strip-out-windows-11s-bloatware-ads-and-other-nastiness-for-free.html", "source": "PCWorld", "published_at": "2026-02-18T11:30:00Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:05.759+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:06.245+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:06.246+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:06.247+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:06.248+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-979b-0000-000b9836c2b5
+[2026-02-19T21:58:06.249+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:06.754+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:06.755+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:06.756+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:06.803+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:06.900+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:06.901+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:06.902+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:07.480+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:07.586+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:07.590+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:07.591+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_7714378523253707043_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Avowed was overlooked - it''s a double-A blast of gaming sunshine well worth trying on PS5 - Eurogamer", "description": "Don''t overlook Avowed again, now it''s arriving on PS5. It''s just the type of game we need more of.", "url": "https://www.eurogamer.net/avowed-was-overlooked-its-a-double-a-blast-of-gaming-sunshine", "source": "Eurogamer.net", "published_at": "2026-02-18T11:02:19Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:07.594+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:08.147+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:08.149+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:08.150+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:08.151+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9547-0000-000b98363599
+[2026-02-19T21:58:08.152+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:08.498+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:08.499+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:08.500+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:08.553+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:08.628+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:08.628+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:08.629+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:09.128+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:09.231+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:09.232+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:09.233+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_8644180702335258354_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Battlefield 6 Fails to be Revived by New Season Release - Insider Gaming", "description": "The new release of Battlefield 6''s season two update has failed to generate much traction in the game, data reveals.", "url": "https://insider-gaming.com/battlefield-6-fails-revive-new-season/", "source": "Insider-gaming.com", "published_at": "2026-02-18T08:25:27Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:09.234+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:09.692+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:09.693+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:09.694+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:09.695+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9541-0000-000b983674a1
+[2026-02-19T21:58:09.696+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:10.035+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:10.036+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:10.037+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:10.090+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:10.160+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:10.162+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:10.163+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:10.721+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:10.852+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:10.854+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:10.856+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_49773186379120788_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Google Home automation just got simpler - Android Police", "description": "New shortcuts make building routines faster", "url": "https://www.androidpolice.com/google-home-automation-just-got-simpler/", "source": "Android Police", "published_at": "2026-02-18T07:08:52Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:10.857+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:11.364+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:11.367+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:11.368+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:11.369+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9545-0000-000b983666c9
+[2026-02-19T21:58:11.369+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:11.667+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:11.668+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:11.669+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:11.744+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:11.809+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:11.810+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:11.811+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:12.071+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:12.173+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:12.174+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:12.175+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_8036478604073932420_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Look Away Now, The Revuelto Has Been Mansoried - Carscoops", "description": "This one-of-one Lamborghini, created for a client in Dubai, brings together extensive visual, interior, and performance modifications", "url": "https://www.carscoops.com/2026/02/mansory-lamborghini-revuelto-carbonado-x/", "source": "CarScoops", "published_at": "2026-02-18T02:39:29Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:12.176+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:12.693+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:12.695+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:12.696+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:12.696+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9541-0000-000b983674a5
+[2026-02-19T21:58:12.697+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:13.000+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:13.002+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:13.003+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:13.058+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:13.136+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:13.139+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:13.140+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:13.417+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:13.565+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:13.567+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:13.568+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_5330008833624276705_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Yes, Chrome\u2019s Home icon changed on Android - 9to5Google", "description": "Chrome 145 is widely rolling out on Android today with a new Home icon in the address bar. This small tweak...", "url": "http://9to5google.com/2026/02/17/chrome-145-home-icon/", "source": "9to5google.com", "published_at": "2026-02-18T02:10:00Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:13.569+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:14.304+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:14.307+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:14.308+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:14.310+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9541-0000-000b983674a9
+[2026-02-19T21:58:14.311+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:14.743+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:14.744+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:14.744+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:14.812+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:14.890+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:14.891+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:14.892+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:15.169+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:15.320+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:15.323+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:15.325+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_455886156625940390_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Dead or Alive 6: Last Round will not include Mai Shiranui and Kula Diamond nor crossplay or upgrades for existing owners - EventHubs", "description": "There had been rumblings that Dead or Alive was not as dead as it seemed until recently, and that turned out to be correct.Koei Tecmo announced Dead or Alive 6: Last Round as well as a new Dead or ...", "url": "https://www.eventhubs.com/news/2026/feb/17/dead-alive-last-round-exclude/", "source": "EventHubs", "published_at": "2026-02-18T01:13:28Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:15.326+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:15.872+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:15.874+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:15.875+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:15.875+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-97fe-0000-000b9836d2d9
+[2026-02-19T21:58:15.876+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:16.382+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:16.384+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:16.384+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:16.444+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:16.515+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:16.516+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:16.517+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:16.877+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:17.304+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:17.306+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:17.307+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_2448365180879101551_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Microsoft confirms new Windows 11 feature drop coming next month - Windows Central", "description": "Windows 11''s latest Release Preview Channel update has given us our first look at Microsoft''s next feature drop for the OS that''s expected to begin rolling out imminently.", "url": "https://www.windowscentral.com/microsoft/windows-11/microsoft-confirms-next-windows-11-feature-drop-with-new-taskbar-emoji-and-settings-updates-heres-whats-coming-to-your-pc-very-soon", "source": "Windows Central", "published_at": "2026-02-18T01:12:32Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:17.308+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:17.814+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:17.816+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:17.818+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:17.818+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-97fe-0000-000b9836d2dd
+[2026-02-19T21:58:17.819+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:18.224+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:18.225+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:18.226+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:18.277+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:18.392+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:18.394+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:18.395+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:18.948+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:19.075+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:19.076+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:19.077+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_4689397167248582015_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Nothing Phone (4a) and Phone (4a) Pro price and release date leaked ahead of official announcement - Notebookcheck", "description": "Nothing is expected to announce the Phone (4a) and Phone (4a) Pro on March 5. However, it seems like their price and release date may have already leaked.", "url": "https://www.notebookcheck.net/Nothing-Phone-4a-and-Phone-4a-Pro-price-and-release-date-leaked-ahead-of-official-announcement.1228649.0.html", "source": "Notebookcheck.net", "published_at": "2026-02-17T22:45:00Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:19.078+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:19.658+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:19.659+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:19.660+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:19.661+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9547-0000-000b983635a9
+[2026-02-19T21:58:19.661+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:20.073+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:20.074+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:20.075+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:20.132+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:20.698+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:20.700+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:20.701+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:22.008+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:22.131+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:22.132+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:22.133+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_7717003326029385593_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Highguard Appears Ready To Say Bye-Guard, Players Believe - GameSpot", "description": "The game''s official website has been down for hours, leading many to assume the worst.", "url": "https://www.gamespot.com/articles/highguard-appears-ready-to-say-bye-guard-players-believe/1100-6538232/", "source": "GameSpot", "published_at": "2026-02-17T22:42:32Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:22.134+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:22.584+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:22.585+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:22.586+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:22.587+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9547-0000-000b983635ad
+[2026-02-19T21:58:22.588+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:23.039+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:23.040+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:23.041+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:23.092+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:23.168+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:23.169+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:23.171+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:23.660+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:23.757+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:23.758+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:23.759+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_4360745918877866716_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "''Can You Use Labo VR Goggles For Virtual Boy Games On Switch?'' & Other Nintendo Classics VB Questions Answered - Nintendo Life", "description": "(Yes, you can, with a Switch 1)", "url": "https://www.nintendolife.com/guides/can-you-use-labo-vr-goggles-for-virtual-boy-games-on-switch-and-other-nintendo-classics-vb-questions-answered", "source": "Nintendo Life", "published_at": "2026-02-17T22:00:01Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:23.760+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:24.263+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:24.264+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:24.264+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:24.265+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9545-0000-000b983666d5
+[2026-02-19T21:58:24.266+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:24.778+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:24.779+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:24.779+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:24.827+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:24.893+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:24.894+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:24.895+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:25.165+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:25.286+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:25.287+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:25.289+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_7715582665140318325_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Classic PlayStation Series Will Soon Be Fully Playable on PS5, PS4 - ComicBook.com", "description": "An iconic series that launched across PS1 and PS2 platforms is soon going to be fully accessible on modern hardware.", "url": "http://comicbook.com/gaming/news/classic-playstation-games-ps5-ps4-fully-playable-2026/", "source": "ComicBook.com", "published_at": "2026-02-17T22:00:00Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:25.290+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:25.800+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:25.801+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:25.802+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:25.802+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9547-0000-000b983635b5
+[2026-02-19T21:58:25.803+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:26.214+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:26.215+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:26.216+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:26.258+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:26.335+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:26.336+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:26.337+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:27.036+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:27.118+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:27.120+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:27.121+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_9001646158762364822_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Google announces dates for I/O 2026 - The Verge", "description": "Google has announced that I/O 2026 will take place from May 19th to the 20th, where it will show off the latest in AI and updates across its products.", "url": "https://www.theverge.com/tech/880401/google-io-2026-dates-ai", "source": "The Verge", "published_at": "2026-02-17T20:56:56Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:27.123+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:27.542+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:27.543+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:27.544+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:27.545+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-97fe-0000-000b9836d2e9
+[2026-02-19T21:58:27.546+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:27.852+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:27.853+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:27.854+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:27.907+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:27.990+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:27.993+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:27.995+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:28.469+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:29.407+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:29.408+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:29.409+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_8126378092550923442_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "This Might Be The Most Expensive Lotus In Existence - Carscoops", "description": "A fully operational Lotus 98T raced by Senna in 1986 is heading to auction, carrying rare turbo era history", "url": "https://www.carscoops.com/2026/02/ayrton-senna-lotus-98t-auction/", "source": "CarScoops", "published_at": "2026-02-17T20:53:29Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:29.410+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:29.899+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:29.901+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:29.901+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:29.902+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9545-0000-000b983666e1
+[2026-02-19T21:58:29.903+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:30.309+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:30.310+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:30.311+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:30.387+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:30.472+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:30.473+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:30.474+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:30.732+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:30.890+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:30.891+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:30.892+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_7404200739749120896_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "iOS 26.4 adds more Sleep and Vitals data to Apple Health - 9to5Mac", "description": "Apple released iOS 26.4 beta 1 yesterday, and the update includes a variety of changes and new features. In addition...", "url": "https://9to5mac.com/2026/02/17/ios-26-4-adds-more-sleep-and-vitals-data-to-apple-health/", "source": "9to5Mac", "published_at": "2026-02-17T20:24:00Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:30.893+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:31.435+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:31.437+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:31.439+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:31.440+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9549-0000-000b98364579
+[2026-02-19T21:58:31.441+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:31.843+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:31.844+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:31.845+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:31.899+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:31.973+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:31.974+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:31.975+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:32.644+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:32.959+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:32.969+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:32.970+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_2418392716339768971_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Apple is reportedly cooking up a trio of AI wearables - TechCrunch", "description": "As the AI hardware space heats up, the iPhone maker has multiple smart products in development.", "url": "https://techcrunch.com/2026/02/17/apple-is-reportedly-cooking-up-a-trio-of-ai-wearables/", "source": "TechCrunch", "published_at": "2026-02-17T20:14:00Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:32.971+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:33.482+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:33.484+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:33.485+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:33.486+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9547-0000-000b983635bd
+[2026-02-19T21:58:33.487+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:33.892+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:33.893+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:33.894+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:33.941+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:34.013+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:34.014+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:34.015+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:34.280+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:34.383+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:34.385+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:34.386+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_8655459610970073338_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Now Pixel 9 phones can transfer files with AirDrop, too - The Verge", "description": "Google is expanding AirDrop compatibility to the Pixel 9 series, making it easier to send and receive files with Apple devices.", "url": "https://www.theverge.com/tech/880210/google-pixel-9-airdrop-quick-share", "source": "The Verge", "published_at": "2026-02-17T19:48:15Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:34.387+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:34.916+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:34.918+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:34.919+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:34.919+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9541-0000-000b983674b1
+[2026-02-19T21:58:34.920+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:35.223+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:35.224+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:35.225+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:35.280+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:36.060+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:36.062+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:36.063+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:36.669+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:36.801+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:36.802+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:36.803+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_3370209576871837152_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Amazon\u2019s Google TV makeover for Fire TV is now rolling out in the US - 9to5Google", "description": "After announcing it earlier this year, Amazon Fire TV is now rolling out a homescreen redesign that feels inspired by Google TV.", "url": "http://9to5google.com/2026/02/17/amazon-fire-tv-homescreen-redesign-google-tv-rolling-out/", "source": "9to5google.com", "published_at": "2026-02-17T19:30:00Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:36.804+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:37.477+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:37.479+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:37.479+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:37.480+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9546-0000-000b9836b8c1
+[2026-02-19T21:58:37.482+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:37.840+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:37.841+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:37.842+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:37.886+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:37.953+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:37.955+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:37.957+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:38.506+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:38.631+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:38.633+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:38.634+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_6073853423781433529_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Sony is Reportedly Considering Delaying the PlayStation 6 until 2028 or 2029 - VGChartz", "description": "Sony is reportedly considering delaying the launch of its next-generation console, the PlayStation 6, until 2028 or 2029, [...]", "url": "https://www.vgchartz.com/article/467056/sony-is-reportedly-considering-delaying-the-playstation-6-until-2028-or-2029/", "source": "Vgchartz.com", "published_at": "2026-02-17T19:28:31Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:38.634+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:39.116+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:39.117+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:39.119+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:39.120+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-97fe-0000-000b9836d2f5
+[2026-02-19T21:58:39.122+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:39.524+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:39.526+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:39.526+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:39.568+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:39.647+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:39.648+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:39.649+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:39.891+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:40.012+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:40.014+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:40.015+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_8073584089035586239_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Google shares how Android 17 is making everything run smoother - Android Authority", "description": "Google shares the technical details behind its new system to reduce missed frames in Android 17, now in beta testing.", "url": "https://www.androidauthority.com/android-17-missed-frames-3641660/", "source": "Android Authority", "published_at": "2026-02-17T19:03:13Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:40.015+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:40.549+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:40.550+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:40.550+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:40.551+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9547-0000-000b983635c5
+[2026-02-19T21:58:40.552+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:40.851+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:40.853+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:40.854+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:40.898+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:40.986+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:40.987+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:40.988+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:41.304+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:41.409+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:41.410+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:41.410+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_4333868547273756075_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "ASUS confirms Germany store suspension amid Nokia HEVC patent dispute, support remains unchanged - VideoCardz.com", "description": "ASUS suspends German web store after Munich court injunction in Nokia HEVC dispute Source: Nokia/ASUS Following earlier reports, ASUS has now officially", "url": "https://videocardz.com/newz/asus-confirms-germany-store-suspension-amid-nokia-hevc-patent-dispute-support-remains-unchanged", "source": "Videocardz.com", "published_at": "2026-02-17T18:51:00Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:41.411+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:41.877+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:41.879+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:41.880+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:41.881+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9541-0000-000b983674b9
+[2026-02-19T21:58:41.882+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:43.109+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:43.110+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:43.111+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:43.161+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:43.234+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:43.237+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:43.238+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:43.726+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:43.830+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:43.831+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:43.833+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+            (load_id, source, content_type, raw_data, fetched_at)
+            SELECT
+                'NEWS_5001142239640866798_202602192156',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Celebrate The Legend of Zelda''s 40th Anniversary with these heroic goodies - Creative Bloq", "description": "Rule Hyrule with some of the best merchandise out there.", "url": "https://www.creativebloq.com/entertainment/celebrate-the-legend-of-zeldas-40th-anniversary-with-these-heroic-goodies", "source": "Creative Bloq", "published_at": "2026-02-17T18:00:00Z"}'),
+                '2026-02-19 21:56:37.417188+00:00', parameters: None
+[2026-02-19T21:58:43.834+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T21:58:45.974+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:45.975+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:45.976+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:45.977+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-979b-0000-000b9836c2c9
+[2026-02-19T21:58:45.978+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:46.286+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:46.288+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:46.289+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:46.333+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:46.383+0000] {logging_mixin.py:188} INFO - ✅ Loaded 30 news articles
+[2026-02-19T21:58:46.399+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T21:58:46.400+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T21:58:46.401+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T21:58:46.683+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T21:58:46.807+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:46.808+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:46.810+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.PIPELINE_RUNS
+        (run_id, dag_id, execution_date, records_fetched, records_loaded,
+         status, started_at, completed_at)
+        SELECT
+            '5e241f4a-c4c1-4a82-8512-258be955b4d9',
+            'social_media_to_snowflake',
+            '2026-02-19 21:56:37.417188+00:00',
+            60,
+            60,
+            'SUCCESS',
+            '2026-02-19 21:56:37.417188+00:00',
+            CURRENT_TIMESTAMP(), parameters: None
+[2026-02-19T21:58:46.810+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.PIPELINE_RUNS (run_id, dag_id, execution_dat...]
+[2026-02-19T21:58:47.382+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:47.384+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T21:58:47.385+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T21:58:47.387+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28686-0004-9541-0000-000b983674bd
+[2026-02-19T21:58:47.388+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T21:58:47.716+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T21:58:47.717+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T21:58:47.718+0000] {connection.py:718} INFO - closed
+[2026-02-19T21:58:47.782+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T21:58:47.841+0000] {logging_mixin.py:188} INFO - ✅ Total loaded: 60 records
+[2026-02-19T21:58:47.842+0000] {python.py:201} INFO - Done. Returned value was: 60
+[2026-02-19T21:58:47.879+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=social_media_to_snowflake, task_id=load_to_snowflake, execution_date=20260219T215637, start_date=20260219T215657, end_date=20260219T215847
+[2026-02-19T21:58:47.927+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-02-19T21:58:47.961+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

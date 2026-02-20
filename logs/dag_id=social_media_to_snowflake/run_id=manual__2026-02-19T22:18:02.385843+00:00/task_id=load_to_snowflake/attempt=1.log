@@ -1,0 +1,539 @@
+[2026-02-19T22:18:14.740+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: social_media_to_snowflake.load_to_snowflake manual__2026-02-19T22:18:02.385843+00:00 [queued]>
+[2026-02-19T22:18:14.756+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: social_media_to_snowflake.load_to_snowflake manual__2026-02-19T22:18:02.385843+00:00 [queued]>
+[2026-02-19T22:18:14.756+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-02-19T22:18:14.778+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): load_to_snowflake> on 2026-02-19 22:18:02.385843+00:00
+[2026-02-19T22:18:14.790+0000] {standard_task_runner.py:60} INFO - Started process 3362 to run task
+[2026-02-19T22:18:14.795+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'social_media_to_snowflake', 'load_to_snowflake', 'manual__2026-02-19T22:18:02.385843+00:00', '--job-id', '144', '--raw', '--subdir', 'DAGS_FOLDER/load_to_snowflake.py', '--cfg-path', '/tmp/tmp1j6kqg4e']
+[2026-02-19T22:18:14.799+0000] {standard_task_runner.py:88} INFO - Job 144: Subtask load_to_snowflake
+[2026-02-19T22:18:14.870+0000] {task_command.py:423} INFO - Running <TaskInstance: social_media_to_snowflake.load_to_snowflake manual__2026-02-19T22:18:02.385843+00:00 [running]> on host d425cee099b0
+[2026-02-19T22:18:14.993+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='social_media_to_snowflake' AIRFLOW_CTX_TASK_ID='load_to_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2026-02-19T22:18:02.385843+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-19T22:18:02.385843+00:00'
+[2026-02-19T22:18:15.031+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:315 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2026-02-19T22:18:15.072+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T22:18:15.074+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T22:18:15.075+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T22:18:15.691+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T22:18:16.055+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:18:16.057+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T22:18:16.059+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+        (load_id, source, content_type, raw_data, fetched_at)
+        SELECT 
+                'HN_47074735_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47074735, "title": "Gemini 3.1 Pro", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/", "score": 315, "by": "MallocVoidstar", "time": 1771514397}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47078167_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47078167, "title": "Micropayments as a reality check for news sites", "url": "https://blog.zgp.org/micropayments-as-a-reality-check-for-news-sites/", "score": 61, "by": "speckx", "time": 1771530151}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47075124_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47075124, "title": "Show HN: Micasa \u2013 track your house from the terminal", "url": "https://micasa.dev", "score": 329, "by": "cpcloud", "time": 1771516454}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47079718_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47079718, "title": "Show HN: Ghostty-based terminal with vertical tabs and notifications", "url": "https://github.com/manaflow-ai/cmux", "score": 26, "by": "lawrencechen", "time": 1771536604}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47079590_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47079590, "title": "A psychedelic medicine performs well against depression", "url": "https://www.economist.com/science-and-technology/2026/02/19/a-psychedelic-medicine-performs-well-against-depression", "score": 17, "by": "vinni2", "time": 1771536087}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47076659_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47076659, "title": "A terminal weather app with ASCII animations driven by real-time weather data", "url": "https://github.com/Veirt/weathr", "score": 115, "by": "forinti", "time": 1771523245}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47077245_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47077245, "title": "Archaeologists find possible first direct evidence of Hannibal''s war elephants", "url": "https://www.smithsonianmag.com/smart-news/archaeologists-unearthed-a-2200-year-old-bone-they-say-it-could-be-the-first-direct-evidence-of-hannibals-legendary-war-elephants-180988185/", "score": 59, "by": "bryanrasmussen", "time": 1771525910}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47074389_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47074389, "title": "America vs. Singapore: You can''t save your way out of economic shocks", "url": "https://www.governance.fyi/p/america-vs-singapore-you-cant-save", "score": 173, "by": "guardianbob", "time": 1771512738}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47079222_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47079222, "title": "We''re no longer attracting top talent: the brain drain killing American science", "url": "https://www.theguardian.com/us-news/2026/feb/19/trump-science-funding-cuts", "score": 93, "by": "mitchbob", "time": 1771534583}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47078324_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47078324, "title": "AI is not a coworker, it''s an exoskeleton", "url": "https://www.kasava.dev/blog/ai-as-exoskeleton", "score": 63, "by": "benbeingbin", "time": 1771530911}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47072968_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47072968, "title": "Paged Out Issue #8 [pdf]", "url": "https://pagedout.institute/download/PagedOut_008.pdf", "score": 273, "by": "SteveHawk27", "time": 1771503224}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47073112_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47073112, "title": "Pebble Production: February Update", "url": "https://repebble.com/blog/february-pebble-production-and-software-updates", "score": 241, "by": "smig0", "time": 1771504560}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47074869_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47074869, "title": "Dinosaur Food: 100M year old foods we still eat today (2022)", "url": "https://borischerny.com/food/2022/01/17/Dinosaur-food.html", "score": 83, "by": "simonebrunozzi", "time": 1771515042}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47078840_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47078840, "title": "Overall, the colorectal cancer story is encouraging", "url": "https://www.hankgreen.com/crc", "score": 65, "by": "ZeroGravitas", "time": 1771533129}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47041294_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47041294, "title": "My 1981 adventure game is now a multimedia extravaganza", "url": "https://technologizer.com/home/2026/02/16/arctic-adventure-2026/", "score": 36, "by": "vontzy", "time": 1771281350}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47038032_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47038032, "title": "Don''t Trust the Salt: AI Summarization, Multilingual Safety, and LLM Guardrails", "url": "https://royapakzad.substack.com/p/multilingual-llm-evaluation-to-guardrails", "score": 167, "by": "benbreen", "time": 1771264666}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47072444_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47072444, "title": "Show HN: A physically-based GPU ray tracer written in Julia", "url": "https://makie.org/website/blogposts/raytracing/", "score": 151, "by": "simondanisch", "time": 1771498513}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47029368_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47029368, "title": "A Beginner''s Guide to Split Keyboards", "url": "https://www.justinmklam.com/posts/2026/02/beginners-guide-split-keyboards/", "score": 4, "by": "thehaikuza", "time": 1771201861}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47073947_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47073947, "title": "Measuring AI agent autonomy in practice", "url": "https://www.anthropic.com/research/measuring-agent-autonomy", "score": 62, "by": "jbredeche", "time": 1771510454}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47076966_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47076966, "title": "AI makes you boring", "url": "https://www.marginalia.nu/log/a_132_ai_bores/", "score": 440, "by": "speckx", "time": 1771524736}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47077844_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47077844, "title": "California''s new bill requires DOJ-approved 3D printers that report themselves", "url": "https://blog.adafruit.com/2026/02/19/californias-new-bill-requires-doj-approved-3d-printers-that-report-on-themselves/", "score": 185, "by": "fortran77", "time": 1771528572}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47073044_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47073044, "title": "Coding Tricks Used in the C64 Game Seawolves (2025)", "url": "https://kodiak64.co.uk/blog/seawolves-technical-tricks", "score": 110, "by": "atan2", "time": 1771503873}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47072863_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47072863, "title": "Show HN: Mini-Diarium - An encrypted, local, cross-platform journaling app", "url": "https://github.com/fjrevoredo/mini-diarium", "score": 101, "by": "holyknight", "time": 1771502061}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47067270_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47067270, "title": "US plans online portal to bypass content bans in Europe and elsewhere", "url": "https://www.reuters.com/world/us-plans-online-portal-bypass-content-bans-europe-elsewhere-2026-02-18/", "score": 84, "by": "c420", "time": 1771453513}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47075245_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47075245, "title": "Mark Zuckerberg grilled on usage goals and underage users at California trial", "url": "https://www.wsj.com/us-news/law/meta-mark-zuckerberg-social-media-trial-0e9a7fa0", "score": 131, "by": "1vuio0pswjnm7", "time": 1771517234}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47049121_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47049121, "title": "Level of Detail", "url": "https://phinze.com/writing/level-of-detail", "score": 12, "by": "zdw", "time": 1771344890}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47037781_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47037781, "title": "Zero downtime migrations at petabyte scale (2024)", "url": "https://planetscale.com/blog/zero-downtime-migrations-at-petabyte-scale", "score": 64, "by": "Ozzie_osman", "time": 1771263300}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47077383_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47077383, "title": "Farewell, Rust for web", "url": "https://yieldcode.blog/post/farewell-rust/", "score": 86, "by": "skwee357", "time": 1771526571}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47072539_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47072539, "title": "Bridging Elixir and Python with Oban", "url": "https://oban.pro/articles/bridging-with-oban", "score": 110, "by": "sorentwo", "time": 1771499235}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47027171_202602192218',
+                'hackernews',
+                'story',
+                PARSE_JSON('{"id": 47027171, "title": "Voith Schneider Propeller", "url": "https://en.wikipedia.org/wiki/Voith_Schneider_Propeller", "score": 111, "by": "Luc", "time": 1771186953}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_5378986808644761143_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Minecraft 26.1 Snapshot 9 - Minecraft", "description": "Minecraft 26.1 Snapshot 9", "url": "https://www.minecraft.net/en-us/article/minecraft-26-1-snapshot-9", "source": "Minecraft.net", "published_at": "2026-02-18T18:21:48Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_8242657368669123518_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Call Of Duty: Black Ops 7 Ad Banned Over Sexual Assault Joke - Kotaku", "description": "A commercial featuring the Replacers assaulting a male passenger at an airport security checkpoint can no longer air in the UK", "url": "https://kotaku.com/call-of-duty-black-ops-7-ad-banned-over-sexual-assault-joke-2000670671", "source": "Kotaku", "published_at": "2026-02-18T16:35:57Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_4789281022455614270_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Gemini app rolling out music generation for all with Lyria 3 - 9to5Google", "description": "Following text, audio overviews, images, and video, the Gemini app\u2019s latest output is music with Lyria 3...", "url": "http://9to5google.com/2026/02/18/gemini-app-music-lyria-3/", "source": "9to5google.com", "published_at": "2026-02-18T16:00:00Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_8243742839545771317_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Dragon Ball: Sparking Zero Nintendo Switch 2 and Switch update out tomorrow, patch notes - Nintendo Everything", "description": "Dragon Ball: Sparking Zero is update is about to release - check out the full patch notes here.", "url": "https://nintendoeverything.com/dragon-ball-sparking-zero-nintendo-switch-2-and-switch-update-out-tomorrow-patch-notes/", "source": "Nintendoeverything.com", "published_at": "2026-02-18T15:55:40Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_2696453039183594140_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Google\u2019s Pixel 10a arrives on March 5 for $499 with specs and design of yesteryear - Ars Technica", "description": "Google''s new budget phone is here, but don''t expect a big upgrade.", "url": "https://arstechnica.com/gadgets/2026/02/googles-pixel-10a-arrives-on-march-5-for-499-with-specs-and-design-of-yesteryear/", "source": "Ars Technica", "published_at": "2026-02-18T15:00:34Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_7491862816739928754_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Low-Cost MacBook Expected on March 4 in These Colors - MacRumors", "description": "Apple will announce its rumored low-cost MacBook at its event on March 4, with the device coming in a selection of bold color options, according to a...", "url": "https://www.macrumors.com/2026/02/18/low-cost-macbook-expected-on-march-4/", "source": "MacRumors", "published_at": "2026-02-18T13:42:43Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_1580414427556184144_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Samsung teases new AI image editor for upcoming Galaxy S26 phones - Mashable", "description": "For all your photo editing needs.", "url": "https://mashable.com/article/samsung-galaxy-s26-ai-photo-editing-suite", "source": "Mashable", "published_at": "2026-02-18T12:16:29Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_7374630391467758034_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Marathon isn''t just favouring PlayStation players with exclusive cosmetics; Xbox and Steam players promised bonus loot, too - Eurogamer", "description": "Marathon weapon charms will be coming to other platforms than the PlayStation, a new post indicates.", "url": "https://www.eurogamer.net/marathon-isnt-just-favouring-playstation-players-with-exclusive-cosmetics-xbox-and-steam-players-promised-bonus-loot-too", "source": "Eurogamer.net", "published_at": "2026-02-18T11:58:36Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_7042004840496690006_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Strip out Windows 11\u2019s bloatware, ads, and other nastiness\u2014for free - PCWorld", "description": "A new Windows PC can be full of bloat. But this handy app can help you streamline it in minutes!", "url": "https://www.pcworld.com/article/3056694/strip-out-windows-11s-bloatware-ads-and-other-nastiness-for-free.html", "source": "PCWorld", "published_at": "2026-02-18T11:30:00Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_7714378523253707043_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Avowed was overlooked - it''s a double-A blast of gaming sunshine well worth trying on PS5 - Eurogamer", "description": "Don''t overlook Avowed again, now it''s arriving on PS5. It''s just the type of game we need more of.", "url": "https://www.eurogamer.net/avowed-was-overlooked-its-a-double-a-blast-of-gaming-sunshine", "source": "Eurogamer.net", "published_at": "2026-02-18T11:02:19Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_8644180702335258354_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Battlefield 6 Fails to be Revived by New Season Release - Insider Gaming", "description": "The new release of Battlefield 6''s season two update has failed to generate much traction in the game, data reveals.", "url": "https://insider-gaming.com/battlefield-6-fails-revive-new-season/", "source": "Insider-gaming.com", "published_at": "2026-02-18T08:25:27Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_49773186379120788_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Google Home automation just got simpler - Android Police", "description": "New shortcuts make building routines faster", "url": "https://www.androidpolice.com/google-home-automation-just-got-simpler/", "source": "Android Police", "published_at": "2026-02-18T07:08:52Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_8036478604073932420_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Look Away Now, The Revuelto Has Been Mansoried - Carscoops", "description": "This one-of-one Lamborghini, created for a client in Dubai, brings together extensive visual, interior, and performance modifications", "url": "https://www.carscoops.com/2026/02/mansory-lamborghini-revuelto-carbonado-x/", "source": "CarScoops", "published_at": "2026-02-18T02:39:29Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_5330008833624276705_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Yes, Chrome\u2019s Home icon changed on Android - 9to5Google", "description": "Chrome 145 is widely rolling out on Android today with a new Home icon in the address bar. This small tweak...", "url": "http://9to5google.com/2026/02/17/chrome-145-home-icon/", "source": "9to5google.com", "published_at": "2026-02-18T02:10:00Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_455886156625940390_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Dead or Alive 6: Last Round will not include Mai Shiranui and Kula Diamond nor crossplay or upgrades for existing owners - EventHubs", "description": "There had been rumblings that Dead or Alive was not as dead as it seemed until recently, and that turned out to be correct.Koei Tecmo announced Dead or Alive 6: Last Round as well as a new Dead or ...", "url": "https://www.eventhubs.com/news/2026/feb/17/dead-alive-last-round-exclude/", "source": "EventHubs", "published_at": "2026-02-18T01:13:28Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_2448365180879101551_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Microsoft confirms new Windows 11 feature drop coming next month - Windows Central", "description": "Windows 11''s latest Release Preview Channel update has given us our first look at Microsoft''s next feature drop for the OS that''s expected to begin rolling out imminently.", "url": "https://www.windowscentral.com/microsoft/windows-11/microsoft-confirms-next-windows-11-feature-drop-with-new-taskbar-emoji-and-settings-updates-heres-whats-coming-to-your-pc-very-soon", "source": "Windows Central", "published_at": "2026-02-18T01:12:32Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_4689397167248582015_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Nothing Phone (4a) and Phone (4a) Pro price and release date leaked ahead of official announcement - Notebookcheck", "description": "Nothing is expected to announce the Phone (4a) and Phone (4a) Pro on March 5. However, it seems like their price and release date may have already leaked.", "url": "https://www.notebookcheck.net/Nothing-Phone-4a-and-Phone-4a-Pro-price-and-release-date-leaked-ahead-of-official-announcement.1228649.0.html", "source": "Notebookcheck.net", "published_at": "2026-02-17T22:45:00Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_7717003326029385593_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Highguard Appears Ready To Say Bye-Guard, Players Believe - GameSpot", "description": "The game''s official website has been down for hours, leading many to assume the worst.", "url": "https://www.gamespot.com/articles/highguard-appears-ready-to-say-bye-guard-players-believe/1100-6538232/", "source": "GameSpot", "published_at": "2026-02-17T22:42:32Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_4360745918877866716_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "''Can You Use Labo VR Goggles For Virtual Boy Games On Switch?'' & Other Nintendo Classics VB Questions Answered - Nintendo Life", "description": "(Yes, you can, with a Switch 1)", "url": "https://www.nintendolife.com/guides/can-you-use-labo-vr-goggles-for-virtual-boy-games-on-switch-and-other-nintendo-classics-vb-questions-answered", "source": "Nintendo Life", "published_at": "2026-02-17T22:00:01Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_7715582665140318325_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Classic PlayStation Series Will Soon Be Fully Playable on PS5, PS4 - ComicBook.com", "description": "An iconic series that launched across PS1 and PS2 platforms is soon going to be fully accessible on modern hardware.", "url": "http://comicbook.com/gaming/news/classic-playstation-games-ps5-ps4-fully-playable-2026/", "source": "ComicBook.com", "published_at": "2026-02-17T22:00:00Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_9001646158762364822_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Google announces dates for I/O 2026 - The Verge", "description": "Google has announced that I/O 2026 will take place from May 19th to the 20th, where it will show off the latest in AI and updates across its products.", "url": "https://www.theverge.com/tech/880401/google-io-2026-dates-ai", "source": "The Verge", "published_at": "2026-02-17T20:56:56Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_8126378092550923442_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "This Might Be The Most Expensive Lotus In Existence - Carscoops", "description": "A fully operational Lotus 98T raced by Senna in 1986 is heading to auction, carrying rare turbo era history", "url": "https://www.carscoops.com/2026/02/ayrton-senna-lotus-98t-auction/", "source": "CarScoops", "published_at": "2026-02-17T20:53:29Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_7404200739749120896_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "iOS 26.4 adds more Sleep and Vitals data to Apple Health - 9to5Mac", "description": "Apple released iOS 26.4 beta 1 yesterday, and the update includes a variety of changes and new features. In addition...", "url": "https://9to5mac.com/2026/02/17/ios-26-4-adds-more-sleep-and-vitals-data-to-apple-health/", "source": "9to5Mac", "published_at": "2026-02-17T20:24:00Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_2418392716339768971_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Apple is reportedly cooking up a trio of AI wearables - TechCrunch", "description": "As the AI hardware space heats up, the iPhone maker has multiple smart products in development.", "url": "https://techcrunch.com/2026/02/17/apple-is-reportedly-cooking-up-a-trio-of-ai-wearables/", "source": "TechCrunch", "published_at": "2026-02-17T20:14:00Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_8655459610970073338_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Now Pixel 9 phones can transfer files with AirDrop, too - The Verge", "description": "Google is expanding AirDrop compatibility to the Pixel 9 series, making it easier to send and receive files with Apple devices.", "url": "https://www.theverge.com/tech/880210/google-pixel-9-airdrop-quick-share", "source": "The Verge", "published_at": "2026-02-17T19:48:15Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_3370209576871837152_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Amazon\u2019s Google TV makeover for Fire TV is now rolling out in the US - 9to5Google", "description": "After announcing it earlier this year, Amazon Fire TV is now rolling out a homescreen redesign that feels inspired by Google TV.", "url": "http://9to5google.com/2026/02/17/amazon-fire-tv-homescreen-redesign-google-tv-rolling-out/", "source": "9to5google.com", "published_at": "2026-02-17T19:30:00Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_6073853423781433529_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Sony is Reportedly Considering Delaying the PlayStation 6 until 2028 or 2029 - VGChartz", "description": "Sony is reportedly considering delaying the launch of its next-generation console, the PlayStation 6, until 2028 or 2029, [...]", "url": "https://www.vgchartz.com/article/467056/sony-is-reportedly-considering-delaying-the-playstation-6-until-2028-or-2029/", "source": "Vgchartz.com", "published_at": "2026-02-17T19:28:31Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_8073584089035586239_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Google shares how Android 17 is making everything run smoother - Android Authority", "description": "Google shares the technical details behind its new system to reduce missed frames in Android 17, now in beta testing.", "url": "https://www.androidauthority.com/android-17-missed-frames-3641660/", "source": "Android Authority", "published_at": "2026-02-17T19:03:13Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_4333868547273756075_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "ASUS confirms Germany store suspension amid Nokia HEVC patent dispute, support remains unchanged - VideoCardz.com", "description": "ASUS suspends German web store after Munich court injunction in Nokia HEVC dispute Source: Nokia/ASUS Following earlier reports, ASUS has now officially", "url": "https://videocardz.com/newz/asus-confirms-germany-store-suspension-amid-nokia-hevc-patent-dispute-support-remains-unchanged", "source": "Videocardz.com", "published_at": "2026-02-17T18:51:00Z"}'),
+                '2026-02-19 22:18:02.385843+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_5001142239640866798_202602192218',
+                'news_api',
+                'article',
+                PARSE_JSON('{"title": "Celebrate The Legend of Zelda''s 40th Anniversary with these heroic goodies - Creative Bloq", "description": "Rule Hyrule with some of the best merchandise out there.", "url": "https://www.creativebloq.com/entertainment/celebrate-the-legend-of-zeldas-40th-anniversary-with-these-heroic-goodies", "source": "Creative Bloq", "published_at": "2026-02-17T18:00:00Z"}'),
+                '2026-02-19 22:18:02.385843+00:00', parameters: None
+[2026-02-19T22:18:16.060+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-19T22:18:17.591+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:18:17.594+0000] {sql.py:459} INFO - Rows affected: 60
+[2026-02-19T22:18:17.595+0000] {snowflake.py:400} INFO - Rows affected: 60
+[2026-02-19T22:18:17.596+0000] {snowflake.py:401} INFO - Snowflake query id: 01c2869a-0004-9547-0000-000b983636a9
+[2026-02-19T22:18:17.597+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T22:18:18.103+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:18:18.104+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T22:18:18.105+0000] {connection.py:718} INFO - closed
+[2026-02-19T22:18:18.150+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T22:18:18.215+0000] {logging_mixin.py:188} INFO - ✅ Bulk loaded 60 records to BRONZE in one SQL call
+[2026-02-19T22:18:18.230+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T22:18:18.233+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T22:18:18.234+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T22:18:18.824+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T22:18:18.933+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:18:18.935+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T22:18:18.936+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.PIPELINE_RUNS
+        (run_id, dag_id, execution_date, records_fetched, records_loaded,
+         status, started_at, completed_at)
+        SELECT
+            '27e49b17-3eaa-4084-8e55-ca26c99033a7',
+            'social_media_to_snowflake',
+            '2026-02-19 22:18:02.385843+00:00',
+            60,
+            60,
+            'SUCCESS',
+            '2026-02-19 22:18:02.385843+00:00',
+            CURRENT_TIMESTAMP(), parameters: None
+[2026-02-19T22:18:18.937+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.PIPELINE_RUNS (run_id, dag_id, execution_dat...]
+[2026-02-19T22:18:19.841+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:18:19.842+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-19T22:18:19.843+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-19T22:18:19.843+0000] {snowflake.py:401} INFO - Snowflake query id: 01c2869a-0004-979b-0000-000b9836c3a9
+[2026-02-19T22:18:19.844+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T22:18:20.354+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:18:20.355+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T22:18:20.355+0000] {connection.py:718} INFO - closed
+[2026-02-19T22:18:20.409+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T22:18:20.473+0000] {python.py:201} INFO - Done. Returned value was: 60
+[2026-02-19T22:18:20.511+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=social_media_to_snowflake, task_id=load_to_snowflake, execution_date=20260219T221802, start_date=20260219T221814, end_date=20260219T221820
+[2026-02-19T22:18:20.576+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-02-19T22:18:20.623+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,343 @@
+[2026-02-20T02:36:44.217+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: social_media_to_snowflake.load_to_snowflake scheduled__2026-02-20T02:15:00+00:00 [queued]>
+[2026-02-20T02:36:44.231+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: social_media_to_snowflake.load_to_snowflake scheduled__2026-02-20T02:15:00+00:00 [queued]>
+[2026-02-20T02:36:44.232+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-02-20T02:36:44.251+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): load_to_snowflake> on 2026-02-20 02:15:00+00:00
+[2026-02-20T02:36:44.258+0000] {standard_task_runner.py:60} INFO - Started process 3088 to run task
+[2026-02-20T02:36:44.266+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'social_media_to_snowflake', 'load_to_snowflake', 'scheduled__2026-02-20T02:15:00+00:00', '--job-id', '197', '--raw', '--subdir', 'DAGS_FOLDER/load_to_snowflake.py', '--cfg-path', '/tmp/tmpainiwbfx']
+[2026-02-20T02:36:44.270+0000] {standard_task_runner.py:88} INFO - Job 197: Subtask load_to_snowflake
+[2026-02-20T02:36:44.348+0000] {task_command.py:423} INFO - Running <TaskInstance: social_media_to_snowflake.load_to_snowflake scheduled__2026-02-20T02:15:00+00:00 [running]> on host 2c6479f94d34
+[2026-02-20T02:36:44.487+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='social_media_to_snowflake' AIRFLOW_CTX_TASK_ID='load_to_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2026-02-20T02:15:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-20T02:15:00+00:00'
+[2026-02-20T02:36:44.532+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:315 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2026-02-20T02:36:44.569+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-20T02:36:44.570+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-20T02:36:44.571+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-20T02:36:45.202+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-20T02:36:45.384+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-20T02:36:45.385+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-20T02:36:45.386+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+        (load_id, source, content_type, raw_data, fetched_at)
+        SELECT 
+                'HN_47074735_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47074735, "title": "Gemini 3.1 Pro", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/", "score": 548, "by": "MallocVoidstar", "time": 1771514397}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47082548_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47082548, "title": "An ARM Homelab Server, or a Minisforum MS-R1 Review", "url": "https://sour.coffee/2026/02/20/an-arm-homelab-server-or-a-minisforum-ms-r1-review/", "score": 12, "by": "neelc", "time": 1771551216}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47075124_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47075124, "title": "Show HN: Micasa \u2013 track your house from the terminal", "url": "https://micasa.dev", "score": 460, "by": "cpcloud", "time": 1771516454}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47078167_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47078167, "title": "Micropayments as a reality check for news sites", "url": "https://blog.zgp.org/micropayments-as-a-reality-check-for-news-sites/", "score": 119, "by": "speckx", "time": 1771530151}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47074389_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47074389, "title": "America vs. Singapore: You can''t save your way out of economic shocks", "url": "https://www.governance.fyi/p/america-vs-singapore-you-cant-save", "score": 224, "by": "guardianbob", "time": 1771512738}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47076659_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47076659, "title": "A terminal weather app with ASCII animations driven by real-time weather data", "url": "https://github.com/Veirt/weathr", "score": 166, "by": "forinti", "time": 1771523245}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47067270_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47067270, "title": "US plans online portal to bypass content bans in Europe and elsewhere", "url": "https://www.reuters.com/world/us-plans-online-portal-bypass-content-bans-europe-elsewhere-2026-02-18/", "score": 174, "by": "c420", "time": 1771453513}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47072968_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47072968, "title": "Paged Out Issue #8 [pdf]", "url": "https://pagedout.institute/download/PagedOut_008.pdf", "score": 327, "by": "SteveHawk27", "time": 1771503224}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47077245_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47077245, "title": "Archaeologists find possible first direct evidence of Hannibal''s war elephants", "url": "https://www.smithsonianmag.com/smart-news/archaeologists-unearthed-a-2200-year-old-bone-they-say-it-could-be-the-first-direct-evidence-of-hannibals-legendary-war-elephants-180988185/", "score": 82, "by": "bryanrasmussen", "time": 1771525910}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47073112_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47073112, "title": "Pebble Production: February Update", "url": "https://repebble.com/blog/february-pebble-production-and-software-updates", "score": 265, "by": "smig0", "time": 1771504560}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47041294_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47041294, "title": "My 1981 adventure game is now a multimedia extravaganza", "url": "https://technologizer.com/home/2026/02/16/arctic-adventure-2026/", "score": 66, "by": "vontzy", "time": 1771281350}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47074869_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47074869, "title": "Dinosaur Food: 100M year old foods we still eat today (2022)", "url": "https://borischerny.com/food/2022/01/17/Dinosaur-food.html", "score": 103, "by": "simonebrunozzi", "time": 1771515042}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47038032_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47038032, "title": "Don''t Trust the Salt: AI Summarization, Multilingual Safety, and LLM Guardrails", "url": "https://royapakzad.substack.com/p/multilingual-llm-evaluation-to-guardrails", "score": 183, "by": "benbreen", "time": 1771264666}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47034593_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47034593, "title": "The Chinese periodic table goes hard [video]", "url": "https://www.youtube.com/watch?v=8ol7DsPnHcE", "score": 20, "by": "surprisetalk", "time": 1771247799}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47079718_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47079718, "title": "Show HN: Ghostty-based terminal with vertical tabs and notifications", "url": "https://github.com/manaflow-ai/cmux", "score": 90, "by": "lawrencechen", "time": 1771536604}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47038491_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47038491, "title": "Type-based alias analysis in the Toy Optimizer", "url": "https://bernsteinbear.com/blog/toy-tbaa/", "score": 10, "by": "chunkles", "time": 1771267059}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47073947_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47073947, "title": "Measuring AI agent autonomy in practice", "url": "https://www.anthropic.com/research/measuring-agent-autonomy", "score": 83, "by": "jbredeche", "time": 1771510454}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47080267_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47080267, "title": "Single vaccine could protect against all coughs, colds and flus", "url": "https://www.bbc.com/news/articles/cx2g8rz7yedo", "score": 129, "by": "dabinat", "time": 1771538904}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47079222_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47079222, "title": "We''re no longer attracting top talent: the brain drain killing American science", "url": "https://www.theguardian.com/us-news/2026/feb/19/trump-science-funding-cuts", "score": 317, "by": "mitchbob", "time": 1771534583}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47080873_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47080873, "title": "Show HN: A small, simple music theory library in C99", "url": "https://github.com/thelowsunoverthemoon/mahler.c", "score": 11, "by": "lowsun", "time": 1771541668}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47078840_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47078840, "title": "Overall, the colorectal cancer story is encouraging", "url": "https://www.hankgreen.com/crc", "score": 109, "by": "ZeroGravitas", "time": 1771533129}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47035698_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47035698, "title": "Lindenmayer.jl: Defining recursive patterns in Julia", "url": "https://cormullion.github.io/Lindenmayer.jl/stable/", "score": 6, "by": "WillMorr", "time": 1771253364}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47072444_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47072444, "title": "Show HN: A physically-based GPU ray tracer written in Julia", "url": "https://makie.org/website/blogposts/raytracing/", "score": 161, "by": "simondanisch", "time": 1771498513}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47037781_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47037781, "title": "Zero downtime migrations at petabyte scale (2024)", "url": "https://planetscale.com/blog/zero-downtime-migrations-at-petabyte-scale", "score": 87, "by": "Ozzie_osman", "time": 1771263300}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47072863_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47072863, "title": "Show HN: Mini-Diarium - An encrypted, local, cross-platform journaling app", "url": "https://github.com/fjrevoredo/mini-diarium", "score": 112, "by": "holyknight", "time": 1771502061}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47078324_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47078324, "title": "AI is not a coworker, it''s an exoskeleton", "url": "https://www.kasava.dev/blog/ai-as-exoskeleton", "score": 156, "by": "benbeingbin", "time": 1771530911}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47073044_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47073044, "title": "Coding Tricks Used in the C64 Game Seawolves (2025)", "url": "https://kodiak64.co.uk/blog/seawolves-technical-tricks", "score": 128, "by": "atan2", "time": 1771503873}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47043345_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47043345, "title": "Almost Every infrastructure decision I endorse or regret after 4 years", "url": "https://cep.dev/posts/every-infrastructure-decision-i-endorse-or-regret-after-4-years-running-infrastructure-at-a-startup/", "score": 45, "by": "Meetvelde", "time": 1771298596}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47027171_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47027171, "title": "Voith Schneider Propeller", "url": "https://en.wikipedia.org/wiki/Voith_Schneider_Propeller", "score": 121, "by": "Luc", "time": 1771186953}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'HN_47076966_202602200215', 'hackernews', 'story',
+                PARSE_JSON('{"id": 47076966, "title": "AI makes you boring", "url": "https://www.marginalia.nu/log/a_132_ai_bores/", "score": 552, "by": "speckx", "time": 1771524736}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_4961981076999058993_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "This is when Samsung is restocking the Galaxy Z TriFold in the US - GSMArena.com news - GSMArena.com", "description": "There will probably be limited quantities available again. Samsung''s Galaxy Z TriFold launched in the US in late January and sold out in minutes, due to...", "url": "https://www.gsmarena.com/this_is_when_samsung_is_restocking_the_galaxy_z_trifold_in_the_us-news-71619.php", "source": "GSMArena.com", "published_at": "2026-02-18T20:21:02Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_2214151103689785298_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Todd Howard Shuts Down \u2018Starfield 2.0\u2019 Claims and Promises More News \u2018Soonish\u2019 - Insider Gaming", "description": "Todd Howard of Bethesda Game Studios has shut down claims that Starfield 2.0 is coming soon, but promises more news soon.", "url": "https://insider-gaming.com/todd-howard-starfield-2-shut-down-and-promises-more-news/", "source": "Insider-gaming.com", "published_at": "2026-02-18T20:13:38Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_3741422934109021421_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Elder Scrolls 6 Is Powered By New Version Of Creation Engine - Kotaku", "description": "Todd Howard also says the upcoming RPG is a return to Bethesda''s ''classic'' RPG formula", "url": "https://kotaku.com/elder-scrolls-6-is-powered-by-new-version-of-creation-engine-starfield-classic-rpg-2000670744", "source": "Kotaku", "published_at": "2026-02-18T19:49:59Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_6123358471484993181_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "5 changes to know about in Apple\u2019s latest iOS, macOS, and iPadOS betas - Ars Technica", "description": "The 26.3 updates were mostly invisible; these changes are more significant.", "url": "https://arstechnica.com/gadgets/2026/02/5-changes-to-know-about-in-apples-latest-ios-macos-and-ipados-betas/", "source": "Ars Technica", "published_at": "2026-02-18T19:28:26Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_2147214590306870341_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Sony Could Offset Rising RAM Costs By \"Monetizing\" The PS5 Install Base - GameSpot", "description": "The company''s CFO said it plans to grow its \"software and network services revenue.\"", "url": "https://www.gamespot.com/articles/sony-could-offset-rising-ram-costs-by-monetizing-the-ps5-install-base/1100-6538266/", "source": "GameSpot", "published_at": "2026-02-18T19:15:05Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_4285572761485315992_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Minecraft 26.1 Snapshot 9 - Minecraft", "description": "Minecraft 26.1 Snapshot 9", "url": "https://www.minecraft.net/en-us/article/minecraft-26-1-snapshot-9", "source": "Minecraft.net", "published_at": "2026-02-18T18:21:48Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_2387317897449448405_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Microsoft is bringing a built-in network speed test to Windows 11 - The Verge", "description": "Microsoft is testing a Windows 11 update that adds a network speed test tool to the taskbar.", "url": "https://www.theverge.com/tech/880756/windows-11-speed-test-build-in-update-preview", "source": "The Verge", "published_at": "2026-02-18T18:09:03Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_6057860549147783135_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "The Metal Gear Solid 4 Remaster Can Finally Deliver On The Promise Of Its Earliest PS3 Demo - Digital Foundry", "description": "60fps will be a game-changer.", "url": "https://www.digitalfoundry.net/news/2026/02/the-metal-gear-solid-4-remaster-can-finally-deliver-on-the-promise-of-its-earliest-ps3-demo", "source": "Digitalfoundry.net", "published_at": "2026-02-18T17:00:00Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_8054650226264578626_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Silent Hill: Townfall looks to be a PS5 console launch exclusive, according to official website - Eurogamer", "description": "Silent Hill: Townfall looks to be a PS5 console exclusive at launch, according to the Konami website.", "url": "https://www.eurogamer.net/silent-hill-townfall-looks-to-be-a-ps5-console-launch-exclusive-according-to-official-website", "source": "Eurogamer.net", "published_at": "2026-02-18T16:49:43Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_1941630314700152154_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Call Of Duty: Black Ops 7 Ad Banned Over Sexual Assault Joke - Kotaku", "description": "A commercial featuring the Replacers assaulting a male passenger at an airport security checkpoint can no longer air in the UK", "url": "https://kotaku.com/call-of-duty-black-ops-7-ad-banned-over-sexual-assault-joke-2000670671", "source": "Kotaku", "published_at": "2026-02-18T16:35:57Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_293530101001492212_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "How Perplexity Lost the Al Race - Geeky Gadgets", "description": "Perplexity\u2019s AI search lead faded as Google and OpenAI added similar answer tools; founded in 2022, it remained a niche choice", "url": "https://www.geeky-gadgets.com/perplexity-ai-search-decline/", "source": "Geeky Gadgets", "published_at": "2026-02-18T16:30:59Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_7826148690755372162_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Record scratch\u2014Google\u2019s Lyria 3 AI music model is coming to Gemini today - Ars Technica", "description": "With a simple prompt, you can generate 30 seconds of something like music.", "url": "https://arstechnica.com/google/2026/02/gemini-can-now-generate-ai-music-for-you-no-lyrics-required/", "source": "Ars Technica", "published_at": "2026-02-18T16:00:11Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_1774356816187997894_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Dragon Ball: Sparking Zero Nintendo Switch 2 and Switch update out tomorrow, patch notes - Nintendo Everything", "description": "Dragon Ball: Sparking Zero is update is about to release - check out the full patch notes here.", "url": "https://nintendoeverything.com/dragon-ball-sparking-zero-nintendo-switch-2-and-switch-update-out-tomorrow-patch-notes/", "source": "Nintendoeverything.com", "published_at": "2026-02-18T15:55:40Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_3560479826650626402_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Google Debuts $499 Pixel 10a Just Ahead of the iPhone 17e Reveal - Bloomberg", "description": "Alphabet Inc.\u2019s Google introduced its latest entry-level Pixel smartphone, hoping that new AI software capabilities, minor hardware refinements and an unchanged $499 price can make up for an otherwise iterative update.", "url": "https://www.bloomberg.com/news/articles/2026-02-18/google-announces-499-pixel-10a-just-before-expected-iphone-17e-reveal", "source": "Bloomberg", "published_at": "2026-02-18T15:01:02Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_6752503534874320893_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Galaxy phones are suddenly getting Google Play system updates again - 9to5Google", "description": "Google\u2019s Play system updates haven\u2019t touched Samsung Galaxy devices in some time, dating back to mid-2025. According to more than...", "url": "http://9to5google.com/2026/02/18/galaxy-phones-are-suddenly-getting-google-play-system-updates-again/", "source": "9to5google.com", "published_at": "2026-02-18T14:55:00Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_673744135962471664_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Global game content sales rose 5.3% to $195.6bn in 2025 - GamesIndustry.biz", "description": "Private funding fell a further 55% last year, according to Epyllion''s latest State of Video Gaming report", "url": "https://www.gamesindustry.biz/global-game-content-sales-rose-53-to-1956bn-in-2025", "source": "GamesIndustry.biz", "published_at": "2026-02-18T14:49:51Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_7503002308734656700_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Sony''s Really Trying to Position PS5 as a Destination for Indie Games - Push Square", "description": "11 titles highlighted on PS Blog", "url": "https://www.pushsquare.com/news/2026/02/sonys-really-trying-to-position-ps5-as-a-destination-for-indie-games", "source": "Push Square", "published_at": "2026-02-18T13:47:23Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_3686230805914917430_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Samsung teases new AI image editor for upcoming Galaxy S26 phones - Mashable", "description": "For all your photo editing needs.", "url": "https://mashable.com/article/samsung-galaxy-s26-ai-photo-editing-suite", "source": "Mashable", "published_at": "2026-02-18T12:16:29Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_6541686085469863524_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Marathon isn''t just favouring PlayStation players with exclusive cosmetics; Xbox and Steam players promised bonus loot, too - Eurogamer", "description": "Marathon weapon charms will be coming to other platforms than the PlayStation, a new post indicates.", "url": "https://www.eurogamer.net/marathon-isnt-just-favouring-playstation-players-with-exclusive-cosmetics-xbox-and-steam-players-promised-bonus-loot-too", "source": "Eurogamer.net", "published_at": "2026-02-18T11:58:36Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_7953048217144350718_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Strip out Windows 11\u2019s bloatware, ads, and other nastiness\u2014for free - PCWorld", "description": "A new Windows PC can be full of bloat. But this handy app can help you streamline it in minutes!", "url": "https://www.pcworld.com/article/3056694/strip-out-windows-11s-bloatware-ads-and-other-nastiness-for-free.html", "source": "PCWorld", "published_at": "2026-02-18T11:30:00Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_7551035762999770571_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Avowed was overlooked - it''s a double-A blast of gaming sunshine well worth trying on PS5 - Eurogamer", "description": "Don''t overlook Avowed again, now it''s arriving on PS5. It''s just the type of game we need more of.", "url": "https://www.eurogamer.net/avowed-was-overlooked-its-a-double-a-blast-of-gaming-sunshine", "source": "Eurogamer.net", "published_at": "2026-02-18T11:02:19Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_4136220860166511836_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Failing FPS Highguard''s Concord Arc Seems Almost Complete as Website Goes Down - Push Square", "description": "Mysterious investor revealed", "url": "https://www.pushsquare.com/news/2026/02/we-need-to-focus-on-improving-the-game-highguard-dev-explains-why-website-is-offline", "source": "Push Square", "published_at": "2026-02-18T10:49:57Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_1166164823843996466_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Star Trek: Voyager - Across the Unknown''s survival RPG retelling inspires many emotions, but mostly makes me feel old - Rock Paper Shotgun", "description": "Star Trek: Voyager - Across the Unknown is out today, and might grab you if you love the license and can forgive some overfamiliar survival RPG systems.", "url": "https://www.rockpapershotgun.com/star-trek-voyager-across-the-unknowns-survival-rpg-retelling-inspires-many-emotions-but-mostly-makes-me-feel-old", "source": "Rock Paper Shotgun", "published_at": "2026-02-18T10:20:04Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_9011660340780302941_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Wedbush\u2019s Dan Ives Sticks to Apple Stock Street-High $350 PT \u2013 Calls Selloff \u2018Unwarranted\u2019 - TipRanks", "description": "Wedbush\u2019s top analyst Daniel Ives called Apple\u2019s ($AAPL) recent stock selloff \u201cunwarranted\u201d and maintained his Street-high price target of $350, implying 32.6% upside potential. The longtime Apple bull dismissed concerns", "url": "https://www.tipranks.com/news/apple-stock-selloff-unwarranted-wedbushs-dan-ives-sticks-to-street-high-350-pt", "source": "Tipranks.com", "published_at": "2026-02-18T08:26:27Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_7527101437151169527_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "CISA Flags Four Security Flaws Under Active Exploitation in Latest KEV Update - The Hacker News", "description": "CISA adds four actively exploited vulnerabilities to its KEV catalog, including Chrome RCE, Zimbra SSRF, Windows ActiveX, and ThreatSonar flaws.", "url": "https://thehackernews.com/2026/02/cisa-flags-four-security-flaws-under.html", "source": "Internet", "published_at": "2026-02-18T06:52:00Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_9081421322671516657_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "British scientist raising $1bn for new AI lab in Europe\u2019s biggest seed round - Financial Times", "description": "Funding deal would value David Silver\u2019s start-up Ineffable Intelligence at $4bn", "url": "https://www.ft.com/content/dffe72d0-4064-4412-8ebc-50198a30d40e", "source": "Financial Times", "published_at": "2026-02-18T05:00:54Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_5591113515320913087_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Look Away Now, The Revuelto Has Been Mansoried - Carscoops", "description": "This one-of-one Lamborghini, created for a client in Dubai, brings together extensive visual, interior, and performance modifications", "url": "https://www.carscoops.com/2026/02/mansory-lamborghini-revuelto-carbonado-x/", "source": "CarScoops", "published_at": "2026-02-18T02:39:29Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_6863030061596813840_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "All new weapons in Battlefield 6 Season 2 - Shacknews", "description": "Season 2 of Battlefield 6 brought with it a healthy amount of new weapons", "url": "http://www.shacknews.com/article/147911/all-new-weapons-in-battlefield-6-season-2", "source": "Shacknews", "published_at": "2026-02-18T02:25:00Z"}'), '2026-02-20 02:15:00+00:00'
+            
+UNION ALL
+SELECT 
+                'NEWS_4653799759717920970_202602200215', 'news_api', 'article',
+                PARSE_JSON('{"title": "Yes, Chrome\u2019s Home icon changed on Android - 9to5Google", "description": "Chrome 145 is widely rolling out on Android today with a new Home icon in the address bar. This small tweak...", "url": "http://9to5google.com/2026/02/17/chrome-145-home-icon/", "source": "9to5google.com", "published_at": "2026-02-18T02:10:00Z"}'), '2026-02-20 02:15:00+00:00', parameters: None
+[2026-02-20T02:36:45.388+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA (load_id, source, cont...]
+[2026-02-20T02:36:46.215+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-20T02:36:46.227+0000] {connection.py:718} INFO - closed
+[2026-02-20T02:36:46.349+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-20T02:36:46.422+0000] {logging_mixin.py:188} INFO - ❌ Error: 100069 (22P02): 01c2879c-0004-9541-0000-000b98367b19: DML operation to table SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA failed on column RAW_DATA with error: Error parsing JSON: missing comma, pos 51
+[2026-02-20T02:36:46.423+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/load_to_snowflake.py", line 99, in load_to_snowflake
+    hook.run(f"""
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 388, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 455, in _run_command
+    cur.execute(sql_statement)
+  File "/home/airflow/.local/lib/python3.8/site-packages/snowflake/connector/cursor.py", line 1132, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/airflow/.local/lib/python3.8/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+  File "/home/airflow/.local/lib/python3.8/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.8/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 100069 (22P02): 01c2879c-0004-9541-0000-000b98367b19: DML operation to table SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA failed on column RAW_DATA with error: Error parsing JSON: missing comma, pos 51
+[2026-02-20T02:36:46.443+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=social_media_to_snowflake, task_id=load_to_snowflake, execution_date=20260220T021500, start_date=20260220T023644, end_date=20260220T023646
+[2026-02-20T02:36:46.465+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 197 for task load_to_snowflake (100069 (22P02): 01c2879c-0004-9541-0000-000b98367b19: DML operation to table SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA failed on column RAW_DATA with error: Error parsing JSON: missing comma, pos 51; 3088)
+[2026-02-20T02:36:46.508+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-02-20T02:36:46.556+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

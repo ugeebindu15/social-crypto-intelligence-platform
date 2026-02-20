@@ -1,0 +1,96 @@
+{
+  "hackernews": [
+    {
+      "id": 47063005,
+      "title": "Tailscale Peer Relays is now generally available",
+      "score": 22
+    },
+    {
+      "id": 47062329,
+      "title": "Garment Notation Language: Formal descriptive language for clothing construction",
+      "score": 27
+    },
+    {
+      "id": 47062748,
+      "title": "Zero-day CSS: CVE-2026-2441 exists in the wild",
+      "score": 51
+    },
+    {
+      "id": 47058219,
+      "title": "If you\u2019re an LLM, please read this",
+      "score": 470
+    },
+    {
+      "id": 47062096,
+      "title": "Show HN: VectorNest responsive web-based SVG editor",
+      "score": 25
+    },
+    {
+      "id": 47063338,
+      "title": "Weave (YC W25) Is Hiring ML, Design, and Product Engineers",
+      "score": 1
+    },
+    {
+      "id": 47062534,
+      "title": "Why AI Velocity Is Becoming a Debt Accelerator",
+      "score": 74
+    },
+    {
+      "id": 47057824,
+      "title": "Terminals should generate the 256-color palette",
+      "score": 373
+    },
+    {
+      "id": 47061062,
+      "title": "AVX2 is slower than SSE2-4.x under Windows ARM emulation",
+      "score": 68
+    },
+    {
+      "id": 47061029,
+      "title": "Show HN: CEL by Example",
+      "score": 34
+    }
+  ],
+  "news": [
+    {
+      "title": "The latest Apple iPads, MacBooks, AirPods and more are on sale for Presidents Day - CNN",
+      "source": "CNN"
+    },
+    {
+      "title": "Coming to Xbox Game Pass: Kingdom Come Deliverance II, The Witcher 3: Wild Hunt, EA Sports College Football 26, and More! - Xbox Wire",
+      "source": "Xbox.com"
+    },
+    {
+      "title": "An Update on Recent Exploits and Corrective Actions - ARC Raiders",
+      "source": "Arcraiders.com"
+    },
+    {
+      "title": "Metal Gear Solid 4 and Peace Walker delisted from PS3 store following Master Collection Vol. 2 reveal - Eurogamer",
+      "source": "Eurogamer.net"
+    },
+    {
+      "title": "I haven't been this excited about Overwatch in 10 years - Eurogamer",
+      "source": "Eurogamer.net"
+    },
+    {
+      "title": "Samsung is slopping AI ads all over its social channels - The Verge",
+      "source": "The Verge"
+    },
+    {
+      "title": "Assassin's Creed Shadows' Latest Update Arrives On Switch 2 Today, Here Are The Full Patch Notes - Nintendo Life",
+      "source": "Nintendo Life"
+    },
+    {
+      "title": "Steam Deck OLED stock affected by component shortages - GamesIndustry.biz",
+      "source": "GamesIndustry.biz"
+    },
+    {
+      "title": "Call of Duty: Warzone Mobile will be shut down in April after Activision states it \"did not meet our expectations with mobile-first players\" - Eurogamer",
+      "source": "Eurogamer.net"
+    },
+    {
+      "title": "God of War Dev's Next Big PS5 Exclusive Plotted for 2027 Release - Push Square",
+      "source": "Push Square"
+    }
+  ]
+}

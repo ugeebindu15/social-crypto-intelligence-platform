@@ -1,0 +1,133 @@
+[2026-02-20T00:15:36.382+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: social_media_to_snowflake.build_combined_insights scheduled__2026-02-20T00:00:00+00:00 [queued]>
+[2026-02-20T00:15:36.403+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: social_media_to_snowflake.build_combined_insights scheduled__2026-02-20T00:00:00+00:00 [queued]>
+[2026-02-20T00:15:36.404+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-02-20T00:15:36.432+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): build_combined_insights> on 2026-02-20 00:00:00+00:00
+[2026-02-20T00:15:36.443+0000] {standard_task_runner.py:60} INFO - Started process 2142 to run task
+[2026-02-20T00:15:36.450+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'social_media_to_snowflake', 'build_combined_insights', 'scheduled__2026-02-20T00:00:00+00:00', '--job-id', '184', '--raw', '--subdir', 'DAGS_FOLDER/load_to_snowflake.py', '--cfg-path', '/tmp/tmpxrvx3plg']
+[2026-02-20T00:15:36.454+0000] {standard_task_runner.py:88} INFO - Job 184: Subtask build_combined_insights
+[2026-02-20T00:15:36.545+0000] {task_command.py:423} INFO - Running <TaskInstance: social_media_to_snowflake.build_combined_insights scheduled__2026-02-20T00:00:00+00:00 [running]> on host 2c6479f94d34
+[2026-02-20T00:15:36.690+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='social_media_to_snowflake' AIRFLOW_CTX_TASK_ID='build_combined_insights' AIRFLOW_CTX_EXECUTION_DATE='2026-02-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-20T00:00:00+00:00'
+[2026-02-20T00:15:36.701+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:315 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2026-02-20T00:15:36.716+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-20T00:15:36.718+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-20T00:15:36.719+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-20T00:15:37.237+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-20T00:15:37.348+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-20T00:15:37.349+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-20T00:15:37.350+0000] {sql.py:450} INFO - Running statement: DELETE FROM SOCIAL_ANALYTICS.GOLD.COMBINED_INSIGHTS
+        WHERE report_date = '2026-02-20', parameters: None
+[2026-02-20T00:15:37.350+0000] {cursor.py:1028} INFO - query: [DELETE FROM SOCIAL_ANALYTICS.GOLD.COMBINED_INSIGHTS WHERE report_date = '2026-02...]
+[2026-02-20T00:15:37.627+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-20T00:15:37.628+0000] {sql.py:459} INFO - Rows affected: 0
+[2026-02-20T00:15:37.629+0000] {snowflake.py:400} INFO - Rows affected: 0
+[2026-02-20T00:15:37.630+0000] {snowflake.py:401} INFO - Snowflake query id: 01c2870f-0004-954b-0000-000b98362aa5
+[2026-02-20T00:15:37.631+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-20T00:15:37.889+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-20T00:15:37.890+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-20T00:15:37.891+0000] {connection.py:718} INFO - closed
+[2026-02-20T00:15:37.982+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-20T00:15:38.068+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-20T00:15:38.070+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-20T00:15:38.071+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-20T00:15:38.361+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-20T00:15:38.739+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-20T00:15:38.741+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-20T00:15:38.742+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.GOLD.COMBINED_INSIGHTS
+        (report_date, top_hn_story, hn_max_score, total_articles,
+         btc_avg_price, eth_avg_price, sol_avg_price, btc_price_change, loaded_at)
+        SELECT
+            '2026-02-20'::DATE                              AS report_date,
+
+            -- Top trending HackerNews story today
+            news.top_story                                  AS top_hn_story,
+            news.max_score                                  AS hn_max_score,
+            news.total_articles                             AS total_articles,
+
+            -- Average crypto prices today from streaming data
+            crypto.btc_avg                                  AS btc_avg_price,
+            crypto.eth_avg                                  AS eth_avg_price,
+            crypto.sol_avg                                  AS sol_avg_price,
+
+            -- BTC price change: today's avg vs yesterday's avg
+            ROUND(
+                ((crypto.btc_avg - crypto.btc_prev) / NULLIF(crypto.btc_prev, 0)) * 100,
+                2
+            )                                               AS btc_price_change,
+
+            CURRENT_TIMESTAMP()                             AS loaded_at
+
+        FROM (
+            -- News summary: top story + stats from GOLD
+            SELECT
+                MAX_BY(top_story, max_score)    AS top_story,
+                MAX(max_score)                  AS max_score,
+                SUM(total_articles)             AS total_articles
+            FROM SOCIAL_ANALYTICS.GOLD.DAILY_SOURCE_SUMMARY
+            WHERE report_date = '2026-02-20'
+              AND source = 'hackernews'
+        ) news
+
+        CROSS JOIN (
+            -- Crypto prices: today's averages from Silver streaming data
+            SELECT
+                AVG(CASE WHEN symbol = 'BTC-USD' THEN price END) AS btc_avg,
+                AVG(CASE WHEN symbol = 'ETH-USD' THEN price END) AS eth_avg,
+                AVG(CASE WHEN symbol = 'SOL-USD' THEN price END) AS sol_avg,
+                -- Yesterday's BTC avg for price change calculation
+                (SELECT AVG(price)
+                 FROM SOCIAL_ANALYTICS.SILVER.CRYPTO_PRICES_CLEAN
+                 WHERE symbol = 'BTC-USD'
+                   AND DATE(event_time) = DATEADD(day, -1, '2026-02-20')
+                ) AS btc_prev
+            FROM SOCIAL_ANALYTICS.SILVER.CRYPTO_PRICES_CLEAN
+            WHERE DATE(event_time) = '2026-02-20'
+        ) crypto, parameters: None
+[2026-02-20T00:15:38.743+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.GOLD.COMBINED_INSIGHTS (report_date, top_hn_story, ...]
+[2026-02-20T00:15:39.335+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-20T00:15:39.336+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-20T00:15:39.337+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-20T00:15:39.338+0000] {snowflake.py:401} INFO - Snowflake query id: 01c2870f-0004-954b-0000-000b98362aa9
+[2026-02-20T00:15:39.339+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-20T00:15:39.732+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-20T00:15:39.733+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-20T00:15:39.734+0000] {connection.py:718} INFO - closed
+[2026-02-20T00:15:39.780+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-20T00:15:39.875+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-20T00:15:39.877+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-20T00:15:39.878+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-20T00:15:41.070+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-20T00:15:41.262+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-20T00:15:41.264+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-20T00:15:41.265+0000] {sql.py:450} INFO - Running statement: SELECT
+            report_date, top_hn_story, hn_max_score,
+            total_articles, btc_avg_price, eth_avg_price,
+            sol_avg_price, btc_price_change
+        FROM SOCIAL_ANALYTICS.GOLD.COMBINED_INSIGHTS
+        WHERE report_date = '2026-02-20', parameters: None
+[2026-02-20T00:15:41.266+0000] {cursor.py:1028} INFO - query: [SELECT report_date, top_hn_story, hn_max_score, total_articles, btc_avg_price, e...]
+[2026-02-20T00:15:41.525+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-20T00:15:41.526+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-20T00:15:41.527+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-02-20T00:15:41.528+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2026-02-20T00:15:41.528+0000] {snowflake.py:401} INFO - Snowflake query id: 01c2870f-0004-9549-0000-000b98364b85
+[2026-02-20T00:15:41.529+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-20T00:15:41.634+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-20T00:15:41.636+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-20T00:15:41.637+0000] {connection.py:718} INFO - closed
+[2026-02-20T00:15:41.691+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-20T00:15:41.764+0000] {logging_mixin.py:188} INFO - 
+🔍 COMBINED INSIGHTS Report:
+[2026-02-20T00:15:41.765+0000] {logging_mixin.py:188} INFO - ============================================================
+[2026-02-20T00:15:41.766+0000] {logging_mixin.py:188} INFO - Date          : 2026-02-20
+[2026-02-20T00:15:41.766+0000] {logging_mixin.py:188} INFO - Top HN Story  : None
+[2026-02-20T00:15:41.767+0000] {logging_mixin.py:188} INFO - HN Score      : None
+[2026-02-20T00:15:41.767+0000] {logging_mixin.py:188} INFO - Total Articles: None
+[2026-02-20T00:15:41.768+0000] {logging_mixin.py:188} INFO - BTC Avg Price : $66,954.91
+[2026-02-20T00:15:41.768+0000] {logging_mixin.py:188} INFO - ETH Avg Price : $1,948.97
+[2026-02-20T00:15:41.769+0000] {logging_mixin.py:188} INFO - SOL Avg Price : $82.37
+[2026-02-20T00:15:41.769+0000] {logging_mixin.py:188} INFO - BTC Change    : 0.1%
+[2026-02-20T00:15:41.770+0000] {logging_mixin.py:188} INFO - ============================================================
+[2026-02-20T00:15:41.770+0000] {python.py:201} INFO - Done. Returned value was: True
+[2026-02-20T00:15:41.804+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=social_media_to_snowflake, task_id=build_combined_insights, execution_date=20260220T000000, start_date=20260220T001536, end_date=20260220T001541
+[2026-02-20T00:15:41.858+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-02-20T00:15:41.882+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

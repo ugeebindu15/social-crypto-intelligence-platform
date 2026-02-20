@@ -1,0 +1,146 @@
+[2026-02-19T22:12:29.186+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: social_media_to_snowflake.transform_to_silver manual__2026-02-19T22:12:07.966765+00:00 [queued]>
+[2026-02-19T22:12:29.200+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: social_media_to_snowflake.transform_to_silver manual__2026-02-19T22:12:07.966765+00:00 [queued]>
+[2026-02-19T22:12:29.201+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-02-19T22:12:29.221+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transform_to_silver> on 2026-02-19 22:12:07.966765+00:00
+[2026-02-19T22:12:29.231+0000] {standard_task_runner.py:60} INFO - Started process 3172 to run task
+[2026-02-19T22:12:29.236+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'social_media_to_snowflake', 'transform_to_silver', 'manual__2026-02-19T22:12:07.966765+00:00', '--job-id', '141', '--raw', '--subdir', 'DAGS_FOLDER/load_to_snowflake.py', '--cfg-path', '/tmp/tmphc6i9jet']
+[2026-02-19T22:12:29.239+0000] {standard_task_runner.py:88} INFO - Job 141: Subtask transform_to_silver
+[2026-02-19T22:12:29.314+0000] {task_command.py:423} INFO - Running <TaskInstance: social_media_to_snowflake.transform_to_silver manual__2026-02-19T22:12:07.966765+00:00 [running]> on host d425cee099b0
+[2026-02-19T22:12:29.448+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='social_media_to_snowflake' AIRFLOW_CTX_TASK_ID='transform_to_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-02-19T22:12:07.966765+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-19T22:12:07.966765+00:00'
+[2026-02-19T22:12:29.461+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:315 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2026-02-19T22:12:29.477+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T22:12:29.479+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T22:12:29.480+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T22:12:30.067+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T22:12:30.200+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:12:30.202+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T22:12:30.202+0000] {sql.py:450} INFO - Running statement: DELETE FROM SOCIAL_ANALYTICS.SILVER.SOCIAL_POSTS_CLEAN
+        WHERE DATE(loaded_at) = '2026-02-19', parameters: None
+[2026-02-19T22:12:30.203+0000] {cursor.py:1028} INFO - query: [DELETE FROM SOCIAL_ANALYTICS.SILVER.SOCIAL_POSTS_CLEAN WHERE DATE(loaded_at) = '...]
+[2026-02-19T22:12:30.767+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:12:30.768+0000] {sql.py:459} INFO - Rows affected: 360
+[2026-02-19T22:12:30.769+0000] {snowflake.py:400} INFO - Rows affected: 360
+[2026-02-19T22:12:30.770+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28694-0004-9545-0000-000b98366785
+[2026-02-19T22:12:30.772+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T22:12:31.179+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:12:31.180+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T22:12:31.181+0000] {connection.py:718} INFO - closed
+[2026-02-19T22:12:31.248+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T22:12:31.331+0000] {logging_mixin.py:188} INFO - ✅ Cleared today's SILVER records
+[2026-02-19T22:12:31.348+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T22:12:31.349+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T22:12:31.350+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T22:12:31.661+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T22:12:31.769+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:12:31.770+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T22:12:31.771+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.SILVER.SOCIAL_POSTS_CLEAN
+        (post_id, source, title, url, score, author, description, published_at, loaded_at)
+        SELECT
+            raw_data:id::VARCHAR                        AS post_id,
+            'hackernews'                                AS source,
+            TRIM(raw_data:title::VARCHAR)               AS title,
+            TRIM(raw_data:url::VARCHAR)                 AS url,
+            raw_data:score::INT                         AS score,
+            TRIM(raw_data:by::VARCHAR)                  AS author,
+            NULL                                        AS description,
+            TO_TIMESTAMP(raw_data:time::INT)            AS published_at,
+            CURRENT_TIMESTAMP()                         AS loaded_at
+        FROM SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+        WHERE source = 'hackernews'
+          AND DATE(fetched_at) = '2026-02-19'
+          AND TRIM(raw_data:url::VARCHAR) != ''
+          AND raw_data:url::VARCHAR IS NOT NULL
+          AND TRIM(raw_data:title::VARCHAR) != ''
+        QUALIFY ROW_NUMBER() OVER (
+            PARTITION BY raw_data:id::VARCHAR
+            ORDER BY raw_data:score::INT DESC
+        ) = 1, parameters: None
+[2026-02-19T22:12:31.772+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.SILVER.SOCIAL_POSTS_CLEAN (post_id, source, title, ...]
+[2026-02-19T22:12:32.406+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:12:32.408+0000] {sql.py:459} INFO - Rows affected: 41
+[2026-02-19T22:12:32.408+0000] {snowflake.py:400} INFO - Rows affected: 41
+[2026-02-19T22:12:32.409+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28694-0004-9545-0000-000b9836678d
+[2026-02-19T22:12:32.409+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T22:12:32.920+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:12:32.921+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T22:12:32.924+0000] {connection.py:718} INFO - closed
+[2026-02-19T22:12:32.984+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T22:12:33.044+0000] {logging_mixin.py:188} INFO - ✅ HackerNews → SILVER (deduped, cleaned)
+[2026-02-19T22:12:33.059+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T22:12:33.060+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T22:12:33.061+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T22:12:33.644+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T22:12:33.758+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:12:33.759+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T22:12:33.760+0000] {sql.py:450} INFO - Running statement: INSERT INTO SOCIAL_ANALYTICS.SILVER.SOCIAL_POSTS_CLEAN
+        (post_id, source, title, url, score, author, description, published_at, loaded_at)
+        SELECT
+            load_id                                                     AS post_id,
+            'news_api'                                                  AS source,
+            TRIM(REGEXP_REPLACE(raw_data:title::VARCHAR, ' - [^-]+$', ''))  AS title,
+            TRIM(raw_data:url::VARCHAR)                                 AS url,
+            0                                                           AS score,
+            TRIM(raw_data:source::VARCHAR)                              AS author,
+            TRIM(raw_data:description::VARCHAR)                         AS description,
+            TRY_TO_TIMESTAMP(raw_data:published_at::VARCHAR)            AS published_at,
+            CURRENT_TIMESTAMP()                                         AS loaded_at
+        FROM SOCIAL_ANALYTICS.BRONZE.RAW_SOCIAL_MEDIA_DATA
+        WHERE source = 'news_api'
+          AND DATE(fetched_at) = '2026-02-19'
+          AND raw_data:title::VARCHAR IS NOT NULL
+          AND TRIM(raw_data:title::VARCHAR) != ''
+          AND raw_data:url::VARCHAR IS NOT NULL
+        QUALIFY ROW_NUMBER() OVER (
+            PARTITION BY raw_data:url::VARCHAR
+            ORDER BY raw_data:published_at::VARCHAR DESC
+        ) = 1, parameters: None
+[2026-02-19T22:12:33.762+0000] {cursor.py:1028} INFO - query: [INSERT INTO SOCIAL_ANALYTICS.SILVER.SOCIAL_POSTS_CLEAN (post_id, source, title, ...]
+[2026-02-19T22:12:34.660+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:12:34.661+0000] {sql.py:459} INFO - Rows affected: 30
+[2026-02-19T22:12:34.661+0000] {snowflake.py:400} INFO - Rows affected: 30
+[2026-02-19T22:12:34.662+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28694-0004-954b-0000-000b9836259d
+[2026-02-19T22:12:34.662+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T22:12:35.011+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:12:35.012+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T22:12:35.013+0000] {connection.py:718} INFO - closed
+[2026-02-19T22:12:35.068+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T22:12:35.120+0000] {logging_mixin.py:188} INFO - ✅ News API → SILVER (deduped, titles cleaned)
+[2026-02-19T22:12:35.134+0000] {base.py:83} INFO - Using connection ID 'snowflake_default' for task execution.
+[2026-02-19T22:12:35.136+0000] {connection.py:370} INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.8.18, Platform: Linux-6.10.14-linuxkit-x86_64-with-glibc2.34
+[2026-02-19T22:12:35.137+0000] {connection.py:1171} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-02-19T22:12:35.416+0000] {cursor.py:1028} INFO - query: [ALTER SESSION SET autocommit=False]
+[2026-02-19T22:12:35.557+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:12:35.558+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T22:12:35.558+0000] {sql.py:450} INFO - Running statement: SELECT
+            source,
+            COUNT(*)                                            AS total_records,
+            COUNT(CASE WHEN url IS NULL THEN 1 END)            AS missing_url,
+            COUNT(CASE WHEN title IS NULL THEN 1 END)          AS missing_title,
+            COUNT(CASE WHEN published_at IS NULL THEN 1 END)   AS missing_date,
+            AVG(score)                                          AS avg_score,
+            MAX(score)                                          AS max_score
+        FROM SOCIAL_ANALYTICS.SILVER.SOCIAL_POSTS_CLEAN
+        WHERE DATE(loaded_at) = '2026-02-19'
+        GROUP BY source, parameters: None
+[2026-02-19T22:12:35.559+0000] {cursor.py:1028} INFO - query: [SELECT source, COUNT(*)                                            AS total_reco...]
+[2026-02-19T22:12:35.993+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:12:35.994+0000] {cursor.py:1205} INFO - Number of results in first chunk: 2
+[2026-02-19T22:12:35.995+0000] {sql.py:459} INFO - Rows affected: 2
+[2026-02-19T22:12:36.001+0000] {snowflake.py:400} INFO - Rows affected: 2
+[2026-02-19T22:12:36.002+0000] {snowflake.py:401} INFO - Snowflake query id: 01c28694-0004-97fe-0000-000b9836d399
+[2026-02-19T22:12:36.003+0000] {cursor.py:1028} INFO - query: [COMMIT]
+[2026-02-19T22:12:36.122+0000] {cursor.py:1041} INFO - query execution done
+[2026-02-19T22:12:36.123+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2026-02-19T22:12:36.124+0000] {connection.py:718} INFO - closed
+[2026-02-19T22:12:36.175+0000] {connection.py:724} INFO - No async queries seem to be running, deleting session
+[2026-02-19T22:12:36.346+0000] {logging_mixin.py:188} INFO - 
+📊 SILVER Validation Report:
+[2026-02-19T22:12:36.347+0000] {logging_mixin.py:188} INFO - Source          Records    No URL     No Title   No Date    Avg Score    Max Score
+[2026-02-19T22:12:36.348+0000] {logging_mixin.py:188} INFO - hackernews      41         0          0          0          129.8        572
+[2026-02-19T22:12:36.348+0000] {logging_mixin.py:188} INFO - news_api        30         0          0          0          0.0          0
+[2026-02-19T22:12:36.349+0000] {logging_mixin.py:188} INFO - 
+✅ SILVER total records today: 71
+[2026-02-19T22:12:36.349+0000] {python.py:201} INFO - Done. Returned value was: 71
+[2026-02-19T22:12:36.383+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=social_media_to_snowflake, task_id=transform_to_silver, execution_date=20260219T221207, start_date=20260219T221229, end_date=20260219T221236
+[2026-02-19T22:12:36.450+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-02-19T22:12:36.480+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
