@@ -530,3 +530,87 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'pyspark'
 [2026-02-20T02:41:36.809+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/spark_crypto_stream.py
 [2026-02-20T02:41:36.846+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_crypto_stream.py took 0.063 seconds
+[2026-02-20T02:42:37.824+0000] {processor.py:161} INFO - Started process (PID=3268) to work on /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:42:37.826+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_crypto_stream.py for tasks to queue
+[2026-02-20T02:42:37.829+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:42:37.829+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:42:37.841+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:42:37.839+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/spark_crypto_stream.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/spark_crypto_stream.py", line 13, in <module>
+    from pyspark.sql import SparkSession
+ModuleNotFoundError: No module named 'pyspark'
+[2026-02-20T02:42:37.842+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:42:37.873+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_crypto_stream.py took 0.055 seconds
+[2026-02-20T02:43:38.066+0000] {processor.py:161} INFO - Started process (PID=3300) to work on /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:43:38.069+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_crypto_stream.py for tasks to queue
+[2026-02-20T02:43:38.073+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:43:38.072+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:43:38.084+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:43:38.081+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/spark_crypto_stream.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/spark_crypto_stream.py", line 13, in <module>
+    from pyspark.sql import SparkSession
+ModuleNotFoundError: No module named 'pyspark'
+[2026-02-20T02:43:38.085+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:43:38.119+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_crypto_stream.py took 0.060 seconds
+[2026-02-20T02:44:39.258+0000] {processor.py:161} INFO - Started process (PID=3332) to work on /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:44:39.260+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_crypto_stream.py for tasks to queue
+[2026-02-20T02:44:39.265+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:44:39.265+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:44:39.274+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:44:39.272+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/spark_crypto_stream.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/spark_crypto_stream.py", line 13, in <module>
+    from pyspark.sql import SparkSession
+ModuleNotFoundError: No module named 'pyspark'
+[2026-02-20T02:44:39.275+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:44:39.306+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_crypto_stream.py took 0.054 seconds
+[2026-02-20T02:45:40.356+0000] {processor.py:161} INFO - Started process (PID=3363) to work on /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:45:40.358+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_crypto_stream.py for tasks to queue
+[2026-02-20T02:45:40.362+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:45:40.361+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:45:40.371+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:45:40.369+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/spark_crypto_stream.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/spark_crypto_stream.py", line 13, in <module>
+    from pyspark.sql import SparkSession
+ModuleNotFoundError: No module named 'pyspark'
+[2026-02-20T02:45:40.372+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:45:40.406+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_crypto_stream.py took 0.057 seconds
+[2026-02-20T02:46:41.672+0000] {processor.py:161} INFO - Started process (PID=3395) to work on /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:46:41.676+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_crypto_stream.py for tasks to queue
+[2026-02-20T02:46:41.680+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:46:41.679+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:46:41.690+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:46:41.688+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/spark_crypto_stream.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/spark_crypto_stream.py", line 13, in <module>
+    from pyspark.sql import SparkSession
+ModuleNotFoundError: No module named 'pyspark'
+[2026-02-20T02:46:41.691+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:46:41.730+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_crypto_stream.py took 0.075 seconds
+[2026-02-20T02:47:41.901+0000] {processor.py:161} INFO - Started process (PID=3440) to work on /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:47:41.903+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_crypto_stream.py for tasks to queue
+[2026-02-20T02:47:41.908+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:47:41.907+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:47:41.921+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:47:41.918+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/spark_crypto_stream.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/spark_crypto_stream.py", line 13, in <module>
+    from pyspark.sql import SparkSession
+ModuleNotFoundError: No module named 'pyspark'
+[2026-02-20T02:47:41.922+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/spark_crypto_stream.py
+[2026-02-20T02:47:41.961+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_crypto_stream.py took 0.067 seconds

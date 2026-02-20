@@ -530,3 +530,87 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'kafka'
 [2026-02-20T02:41:36.913+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/crypto_consumer.py
 [2026-02-20T02:41:36.949+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_consumer.py took 0.060 seconds
+[2026-02-20T02:42:37.931+0000] {processor.py:161} INFO - Started process (PID=3273) to work on /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:42:37.933+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_consumer.py for tasks to queue
+[2026-02-20T02:42:37.938+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:42:37.938+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:42:37.954+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:42:37.950+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/crypto_consumer.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/crypto_consumer.py", line 13, in <module>
+    from kafka import KafkaConsumer
+ModuleNotFoundError: No module named 'kafka'
+[2026-02-20T02:42:37.956+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:42:38.083+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_consumer.py took 0.160 seconds
+[2026-02-20T02:43:38.169+0000] {processor.py:161} INFO - Started process (PID=3305) to work on /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:43:38.173+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_consumer.py for tasks to queue
+[2026-02-20T02:43:38.176+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:43:38.176+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:43:38.187+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:43:38.184+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/crypto_consumer.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/crypto_consumer.py", line 13, in <module>
+    from kafka import KafkaConsumer
+ModuleNotFoundError: No module named 'kafka'
+[2026-02-20T02:43:38.188+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:43:38.224+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_consumer.py took 0.062 seconds
+[2026-02-20T02:44:39.365+0000] {processor.py:161} INFO - Started process (PID=3337) to work on /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:44:39.368+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_consumer.py for tasks to queue
+[2026-02-20T02:44:39.372+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:44:39.371+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:44:39.382+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:44:39.380+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/crypto_consumer.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/crypto_consumer.py", line 13, in <module>
+    from kafka import KafkaConsumer
+ModuleNotFoundError: No module named 'kafka'
+[2026-02-20T02:44:39.383+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:44:39.414+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_consumer.py took 0.057 seconds
+[2026-02-20T02:45:40.462+0000] {processor.py:161} INFO - Started process (PID=3368) to work on /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:45:40.466+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_consumer.py for tasks to queue
+[2026-02-20T02:45:40.473+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:45:40.472+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:45:40.483+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:45:40.481+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/crypto_consumer.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/crypto_consumer.py", line 13, in <module>
+    from kafka import KafkaConsumer
+ModuleNotFoundError: No module named 'kafka'
+[2026-02-20T02:45:40.484+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:45:40.518+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_consumer.py took 0.063 seconds
+[2026-02-20T02:46:41.785+0000] {processor.py:161} INFO - Started process (PID=3400) to work on /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:46:41.789+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_consumer.py for tasks to queue
+[2026-02-20T02:46:41.793+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:46:41.792+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:46:41.803+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:46:41.800+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/crypto_consumer.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/crypto_consumer.py", line 13, in <module>
+    from kafka import KafkaConsumer
+ModuleNotFoundError: No module named 'kafka'
+[2026-02-20T02:46:41.804+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:46:41.842+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_consumer.py took 0.067 seconds
+[2026-02-20T02:47:42.024+0000] {processor.py:161} INFO - Started process (PID=3445) to work on /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:47:42.027+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_consumer.py for tasks to queue
+[2026-02-20T02:47:42.032+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:47:42.031+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:47:42.041+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:47:42.039+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/crypto_consumer.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/crypto_consumer.py", line 13, in <module>
+    from kafka import KafkaConsumer
+ModuleNotFoundError: No module named 'kafka'
+[2026-02-20T02:47:42.042+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/crypto_consumer.py
+[2026-02-20T02:47:42.075+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_consumer.py took 0.057 seconds

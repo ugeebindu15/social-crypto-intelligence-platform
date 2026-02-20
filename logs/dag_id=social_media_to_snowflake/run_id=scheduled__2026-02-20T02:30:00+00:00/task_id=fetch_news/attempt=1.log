@@ -1,0 +1,14 @@
+[2026-02-20T02:47:04.585+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: social_media_to_snowflake.fetch_news scheduled__2026-02-20T02:30:00+00:00 [queued]>
+[2026-02-20T02:47:04.613+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: social_media_to_snowflake.fetch_news scheduled__2026-02-20T02:30:00+00:00 [queued]>
+[2026-02-20T02:47:04.615+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-02-20T02:47:04.669+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): fetch_news> on 2026-02-20 02:30:00+00:00
+[2026-02-20T02:47:04.684+0000] {standard_task_runner.py:60} INFO - Started process 3424 to run task
+[2026-02-20T02:47:04.699+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'social_media_to_snowflake', 'fetch_news', 'scheduled__2026-02-20T02:30:00+00:00', '--job-id', '200', '--raw', '--subdir', 'DAGS_FOLDER/load_to_snowflake.py', '--cfg-path', '/tmp/tmp2d8l8dqt']
+[2026-02-20T02:47:04.704+0000] {standard_task_runner.py:88} INFO - Job 200: Subtask fetch_news
+[2026-02-20T02:47:04.846+0000] {task_command.py:423} INFO - Running <TaskInstance: social_media_to_snowflake.fetch_news scheduled__2026-02-20T02:30:00+00:00 [running]> on host 2c6479f94d34
+[2026-02-20T02:47:05.322+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='social_media_to_snowflake' AIRFLOW_CTX_TASK_ID='fetch_news' AIRFLOW_CTX_EXECUTION_DATE='2026-02-20T02:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-20T02:30:00+00:00'
+[2026-02-20T02:47:05.690+0000] {logging_mixin.py:188} INFO - ✅ Fetched 29 news articles
+[2026-02-20T02:47:06.229+0000] {python.py:201} INFO - Done. Returned value was: 29
+[2026-02-20T02:47:06.562+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=social_media_to_snowflake, task_id=fetch_news, execution_date=20260220T023000, start_date=20260220T024704, end_date=20260220T024706
+[2026-02-20T02:47:06.635+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-02-20T02:47:06.750+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

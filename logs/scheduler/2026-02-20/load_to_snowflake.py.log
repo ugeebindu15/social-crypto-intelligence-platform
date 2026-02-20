@@ -232,3 +232,39 @@
 [2026-02-20T02:41:36.560+0000] {processor.py:840} INFO - DAG(s) 'social_media_to_snowflake' retrieved from /opt/airflow/dags/load_to_snowflake.py
 [2026-02-20T02:41:36.634+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:41:36.633+0000] {dag.py:3036} INFO - Sync 1 DAGs
 [2026-02-20T02:41:36.739+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/load_to_snowflake.py took 0.229 seconds
+[2026-02-20T02:42:37.610+0000] {processor.py:161} INFO - Started process (PID=3263) to work on /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:42:37.613+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/load_to_snowflake.py for tasks to queue
+[2026-02-20T02:42:37.618+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:42:37.617+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:42:37.641+0000] {processor.py:840} INFO - DAG(s) 'social_media_to_snowflake' retrieved from /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:42:37.705+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:42:37.704+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-02-20T02:42:37.773+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/load_to_snowflake.py took 0.170 seconds
+[2026-02-20T02:43:37.853+0000] {processor.py:161} INFO - Started process (PID=3295) to work on /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:43:37.856+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/load_to_snowflake.py for tasks to queue
+[2026-02-20T02:43:37.859+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:43:37.859+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:43:37.880+0000] {processor.py:840} INFO - DAG(s) 'social_media_to_snowflake' retrieved from /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:43:37.940+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:43:37.939+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-02-20T02:43:38.015+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/load_to_snowflake.py took 0.168 seconds
+[2026-02-20T02:44:39.054+0000] {processor.py:161} INFO - Started process (PID=3327) to work on /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:44:39.056+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/load_to_snowflake.py for tasks to queue
+[2026-02-20T02:44:39.060+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:44:39.059+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:44:39.076+0000] {processor.py:840} INFO - DAG(s) 'social_media_to_snowflake' retrieved from /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:44:39.144+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:44:39.143+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-02-20T02:44:39.215+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/load_to_snowflake.py took 0.166 seconds
+[2026-02-20T02:45:40.160+0000] {processor.py:161} INFO - Started process (PID=3358) to work on /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:45:40.163+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/load_to_snowflake.py for tasks to queue
+[2026-02-20T02:45:40.169+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:45:40.167+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:45:40.188+0000] {processor.py:840} INFO - DAG(s) 'social_media_to_snowflake' retrieved from /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:45:40.236+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:45:40.236+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-02-20T02:45:40.302+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/load_to_snowflake.py took 0.180 seconds
+[2026-02-20T02:46:41.345+0000] {processor.py:161} INFO - Started process (PID=3390) to work on /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:46:41.348+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/load_to_snowflake.py for tasks to queue
+[2026-02-20T02:46:41.358+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:46:41.357+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:46:41.380+0000] {processor.py:840} INFO - DAG(s) 'social_media_to_snowflake' retrieved from /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:46:41.526+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:46:41.525+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-02-20T02:46:41.612+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/load_to_snowflake.py took 0.275 seconds
+[2026-02-20T02:47:41.677+0000] {processor.py:161} INFO - Started process (PID=3435) to work on /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:47:41.680+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/load_to_snowflake.py for tasks to queue
+[2026-02-20T02:47:41.685+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:47:41.684+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:47:41.706+0000] {processor.py:840} INFO - DAG(s) 'social_media_to_snowflake' retrieved from /opt/airflow/dags/load_to_snowflake.py
+[2026-02-20T02:47:41.760+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:47:41.759+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-02-20T02:47:41.847+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/load_to_snowflake.py took 0.175 seconds

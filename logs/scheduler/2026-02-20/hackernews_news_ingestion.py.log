@@ -264,3 +264,45 @@
 [2026-02-20T02:41:37.059+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:41:37.059+0000] {dag.py:3036} INFO - Sync 1 DAGs
 [2026-02-20T02:41:37.081+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:41:37.080+0000] {dag.py:3823} INFO - Setting next_dagrun for hackernews_news_pipeline to None, run_after=None
 [2026-02-20T02:41:37.116+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/hackernews_news_ingestion.py took 0.127 seconds
+[2026-02-20T02:42:38.133+0000] {processor.py:161} INFO - Started process (PID=3278) to work on /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:42:38.135+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/hackernews_news_ingestion.py for tasks to queue
+[2026-02-20T02:42:38.139+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:42:38.138+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:42:38.150+0000] {processor.py:840} INFO - DAG(s) 'hackernews_news_pipeline' retrieved from /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:42:38.202+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:42:38.201+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-02-20T02:42:38.224+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:42:38.223+0000] {dag.py:3823} INFO - Setting next_dagrun for hackernews_news_pipeline to None, run_after=None
+[2026-02-20T02:42:38.258+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/hackernews_news_ingestion.py took 0.132 seconds
+[2026-02-20T02:43:39.196+0000] {processor.py:161} INFO - Started process (PID=3310) to work on /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:43:39.199+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/hackernews_news_ingestion.py for tasks to queue
+[2026-02-20T02:43:39.203+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:43:39.202+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:43:39.215+0000] {processor.py:840} INFO - DAG(s) 'hackernews_news_pipeline' retrieved from /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:43:39.342+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:43:39.340+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-02-20T02:43:39.380+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:43:39.380+0000] {dag.py:3823} INFO - Setting next_dagrun for hackernews_news_pipeline to None, run_after=None
+[2026-02-20T02:43:39.422+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/hackernews_news_ingestion.py took 0.233 seconds
+[2026-02-20T02:44:40.386+0000] {processor.py:161} INFO - Started process (PID=3342) to work on /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:44:40.388+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/hackernews_news_ingestion.py for tasks to queue
+[2026-02-20T02:44:40.392+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:44:40.391+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:44:40.403+0000] {processor.py:840} INFO - DAG(s) 'hackernews_news_pipeline' retrieved from /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:44:40.456+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:44:40.456+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-02-20T02:44:40.478+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:44:40.477+0000] {dag.py:3823} INFO - Setting next_dagrun for hackernews_news_pipeline to None, run_after=None
+[2026-02-20T02:44:40.515+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/hackernews_news_ingestion.py took 0.135 seconds
+[2026-02-20T02:45:40.562+0000] {processor.py:161} INFO - Started process (PID=3373) to work on /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:45:40.564+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/hackernews_news_ingestion.py for tasks to queue
+[2026-02-20T02:45:40.567+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:45:40.567+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:45:40.578+0000] {processor.py:840} INFO - DAG(s) 'hackernews_news_pipeline' retrieved from /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:45:40.629+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:45:40.628+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-02-20T02:45:40.650+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:45:40.650+0000] {dag.py:3823} INFO - Setting next_dagrun for hackernews_news_pipeline to None, run_after=None
+[2026-02-20T02:45:40.685+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/hackernews_news_ingestion.py took 0.129 seconds
+[2026-02-20T02:46:41.894+0000] {processor.py:161} INFO - Started process (PID=3405) to work on /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:46:41.896+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/hackernews_news_ingestion.py for tasks to queue
+[2026-02-20T02:46:41.900+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:46:41.899+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:46:41.911+0000] {processor.py:840} INFO - DAG(s) 'hackernews_news_pipeline' retrieved from /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:46:41.959+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:46:41.959+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-02-20T02:46:41.981+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:46:41.980+0000] {dag.py:3823} INFO - Setting next_dagrun for hackernews_news_pipeline to None, run_after=None
+[2026-02-20T02:46:42.014+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/hackernews_news_ingestion.py took 0.127 seconds
+[2026-02-20T02:47:42.123+0000] {processor.py:161} INFO - Started process (PID=3450) to work on /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:47:42.127+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/hackernews_news_ingestion.py for tasks to queue
+[2026-02-20T02:47:42.132+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:47:42.131+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:47:42.144+0000] {processor.py:840} INFO - DAG(s) 'hackernews_news_pipeline' retrieved from /opt/airflow/dags/hackernews_news_ingestion.py
+[2026-02-20T02:47:42.204+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:47:42.203+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-02-20T02:47:42.225+0000] {logging_mixin.py:188} INFO - [2026-02-20T02:47:42.225+0000] {dag.py:3823} INFO - Setting next_dagrun for hackernews_news_pipeline to None, run_after=None
+[2026-02-20T02:47:42.259+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/hackernews_news_ingestion.py took 0.146 seconds
